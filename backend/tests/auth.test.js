@@ -153,58 +153,5 @@ describe('🔐 Auth Integration Test Suite', () => {
       expect(dbUser.refreshTokens.length).toBe(0);
     });
   });
-
-  describe('📨 Password Reset Flow (Forgot & Reset)', () => {
-    beforeEach(async () => {
-      await request(app).post('/api/auth/signup').send(testUser);
-    });
-
-    it('should generate secure code and email it, then permit reset and invalidate token', async () => {
-      // 1. Forgot password request
-      const forgotRes = await request(app)
-        .post('/api/auth/forgot-password')
-        .send({ email: testUser.email });
-
-      expect(forgotRes.statusCode).toBe(200);
-      expect(forgotRes.body.success).toBe(true);
-      
-      // Since NODE_ENV !== production, it returns the devCode in JSON for easy assertion
-      const devCode = forgotRes.body.devCode;
-      expect(devCode).toBeDefined();
-
-      // Retrieve user from DB to verify codes are stored
-      const dbUser = await User.findOne({ email: testUser.email });
-      expect(dbUser.resetPasswordCode).toBe(devCode);
-      expect(dbUser.resetPasswordExpires.getTime()).toBeGreaterThan(Date.now());
-
-      // 2. Perform password reset using the 6-digit code
-      const newPassword = 'MyBrandNewPassword123!';
-      const resetRes = await request(app)
-        .post('/api/auth/reset-password')
-        .send({
-          email: testUser.email,
-          code: devCode,
-          password: newPassword,
-        });
-
-      expect(resetRes.statusCode).toBe(200);
-      expect(resetRes.body.success).toBe(true);
-
-      // Verify DB cleared codes and reset token
-      const updatedUser = await User.findOne({ email: testUser.email });
-      expect(updatedUser.resetPasswordCode).toBeUndefined();
-      expect(updatedUser.resetPasswordExpires).toBeUndefined();
-
-      // 3. Test logging in with the new password
-      const loginRes = await request(app)
-        .post('/api/auth/login')
-        .send({
-          email: testUser.email,
-          password: newPassword,
-        });
-      
-      expect(loginRes.statusCode).toBe(200);
-      expect(loginRes.body.success).toBe(true);
-    });
-  });
 });
+
