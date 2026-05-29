@@ -20,6 +20,7 @@ const connectDB = async () => {
     console.log(`======================================================\n`);
     
     try {
+      // Only require and spawn memory DB if it is available (e.g. dev/local)
       const { MongoMemoryServer } = require('mongodb-memory-server');
       const mongoServer = await MongoMemoryServer.create();
       const mongoUri = mongoServer.getUri();
@@ -28,7 +29,9 @@ const connectDB = async () => {
       console.log(`🚀 In-Memory MongoDB Connected: ${conn.connection.host}`);
       console.log(`👉 Memory Database is active! Data will reset on server restart.`);
     } catch (memError) {
-      console.error(`❌ In-Memory MongoDB Fallback Error: ${memError.message}`);
+      console.error(`\n❌ PRODUCTION DATABASE CONNECTION FAILED!`);
+      console.error(`Render environment is unable to connect to your MongoDB Atlas cluster.`);
+      console.error(`Please verify your Atlas Network Access (IP Whitelist 0.0.0.0/0) and password credentials.\n`);
       process.exit(1);
     }
   }
