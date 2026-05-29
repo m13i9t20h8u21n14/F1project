@@ -4,7 +4,11 @@ import { useToast } from './ToastContext';
 
 const AuthContext = createContext(null);
 
-const BACKEND_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/auth';
+const rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/auth';
+// Normalize URL to always end with /api/auth to prevent configuration errors in hosting platforms
+const BACKEND_URL = rawApiUrl.endsWith('/api/auth') 
+  ? rawApiUrl 
+  : `${rawApiUrl.replace(/\/$/, '')}/api/auth`;
 
 export const authApi = axios.create({
   baseURL: BACKEND_URL,
