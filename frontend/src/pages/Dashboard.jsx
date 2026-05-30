@@ -606,6 +606,20 @@ const Dashboard = () => {
     setNewControlMsg('');
   };
 
+  const handleReset = () => {
+    setDrivers(prevDrivers => {
+      return prevDrivers.map((d, index) => {
+        const startProgress = Math.max(0, trackPath.length - index * (trackPath.length / prevDrivers.length));
+        return {
+          ...d,
+          progress: startProgress,
+          lap: 3,
+          interval: index === 0 ? 'LEADER' : `+${(index * 1.85).toFixed(3)}`
+        };
+      });
+    });
+  };
+
   return (
     <div className="dashboard-container f1-dark-theme" style={{ backgroundColor: '#0b0f19' }}>
       {/* SIDEBAR: Aegis Controls */}
@@ -779,7 +793,7 @@ const Dashboard = () => {
                       {isPlaying ? '⏸ PAUSE FEED' : '▶ PLAY REPLAY'}
                     </button>
                     <button
-                      onClick={() => setPlaybackIndex(0)}
+                      onClick={handleReset}
                       className="glass-btn"
                       style={{
                         padding: '4px 12px', width: 'auto', fontSize: '11px', height: '28px', borderRadius: '6px', background: '#1f2937', borderColor: '#374151', color: '#9ca3af', fontWeight: '700'
