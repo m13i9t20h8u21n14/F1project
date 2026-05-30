@@ -384,3 +384,54 @@ a:hover {
     padding: 20px;
   }
 }
+
+/* F1 Pit-Wall Dark Terminal Styles */
+.f1-dark-theme {
+  --bg-pitwall: #0b0f19;
+  --bg-widget: #111827;
+  --border-widget: #1f2937;
+  --text-white: #f9fafb;
+  --text-gray: #9ca3af;
+  --neon-cyan: #22d3ee;
+  --neon-green: #10b981;
+  --neon-red: #ef4444;
+  --neon-orange: #f97316;
+}
+
+.pitwall-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pitwall-card:hover {
+  border-color: #374151;
+  box-shadow: 0 4px 30px rgba(34, 211, 238, 0.05);
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
+}
+
+.neon-glow-green {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.neon-glow-red {
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+.f1-led-segment {
+  height: 8px;
+  background: #1f2937;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.f1-led-fill {
+  height: 100%;
+  transition: width 0.15s ease;
+}
+
