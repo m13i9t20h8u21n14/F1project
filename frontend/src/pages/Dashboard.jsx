@@ -129,17 +129,124 @@ const MOCK_MEETINGS_2021 = [
 ];
 
 const MOCK_DRIVERS = [
-  { driver_number: 1, name_acronym: 'VER', broadcast_name: 'M VERSTAPPEN', team_name: 'Red Bull Racing', team_colour: '3671c6', last_lap: '1:34.128', interval: 'LEADER', tyre: '🔴 Soft', tyre_age: 4, pos: 1, progress: 120, lap: 3, speedFactor: 1.03, speed: 280 },
-  { driver_number: 44, name_acronym: 'HAM', broadcast_name: 'L HAMILTON', team_name: 'Mercedes', team_colour: '27f4d2', last_lap: '1:34.524', interval: '+1.850', tyre: '🟡 Medium', tyre_age: 12, pos: 2, progress: 110, lap: 3, speedFactor: 1.01, speed: 275 },
-  { driver_number: 16, name_acronym: 'LEC', broadcast_name: 'C LECLERC', team_name: 'Ferrari', team_colour: 'e80020', last_lap: '1:34.852', interval: '+3.700', tyre: '🟡 Medium', tyre_age: 14, pos: 3, progress: 100, lap: 3, speedFactor: 1.01, speed: 272 },
-  { driver_number: 4, name_acronym: 'NOR', broadcast_name: 'L NORRIS', team_name: 'McLaren', team_colour: 'ff8000', last_lap: '1:34.319', interval: '+5.550', tyre: '⚪ Hard', tyre_age: 8, pos: 4, progress: 90, lap: 3, speedFactor: 1.00, speed: 270 },
-  { driver_number: 63, name_acronym: 'RUS', broadcast_name: 'G RUSSELL', team_name: 'Mercedes', team_colour: '27f4d2', last_lap: '1:35.112', interval: '+7.400', tyre: '🔴 Soft', tyre_age: 5, pos: 5, progress: 80, lap: 3, speedFactor: 0.99, speed: 268 },
-  { driver_number: 55, name_acronym: 'SAI', broadcast_name: 'C SAINZ', team_name: 'Ferrari', team_colour: 'e80020', last_lap: '1:34.910', interval: '+9.250', tyre: '⚪ Hard', tyre_age: 18, pos: 6, progress: 70, lap: 3, speedFactor: 0.99, speed: 265 },
-  { driver_number: 11, name_acronym: 'PER', broadcast_name: 'S PEREZ', team_name: 'Red Bull Racing', team_colour: '3671c6', last_lap: '1:35.240', interval: '+11.100', tyre: '🟡 Medium', tyre_age: 15, pos: 7, progress: 60, lap: 3, speedFactor: 0.98, speed: 262 },
-  { driver_number: 81, name_acronym: 'PIA', broadcast_name: 'O PIASTRI', team_name: 'McLaren', team_colour: 'ff8000', last_lap: '1:35.380', interval: '+12.950', tyre: '⚪ Hard', tyre_age: 9, pos: 8, progress: 50, lap: 3, speedFactor: 0.98, speed: 260 },
-  { driver_number: 14, name_acronym: 'ALO', broadcast_name: 'F ALONSO', team_name: 'Aston Martin', team_colour: '229971', last_lap: '1:35.510', interval: '+14.800', tyre: '🟡 Medium', tyre_age: 11, pos: 9, progress: 40, lap: 3, speedFactor: 0.98, speed: 258 },
-  { driver_number: 10, name_acronym: 'GAS', broadcast_name: 'P GASLY', team_name: 'Alpine', team_colour: 'ff66c4', last_lap: '1:35.750', interval: '+16.650', tyre: '🔴 Soft', tyre_age: 6, pos: 10, progress: 30, lap: 3, speedFactor: 0.97, speed: 255 }
+  { driver_number: 1, name_acronym: 'VER', broadcast_name: 'M VERSTAPPEN', team_name: 'Red Bull Racing', team_colour: '3671c6', last_lap: '1:34.128', interval: 'LEADER', tyre: '🔴 Soft', tyre_age: 4, pos: 1, progress: 200, lap: 3, speedFactor: 1.04, speed: 280 },
+  { driver_number: 11, name_acronym: 'PER', broadcast_name: 'S PEREZ', team_name: 'Red Bull Racing', team_colour: '3671c6', last_lap: '1:34.620', interval: '+1.850', tyre: '🟡 Medium', tyre_age: 8, pos: 2, progress: 190, lap: 3, speedFactor: 1.02, speed: 275 },
+  { driver_number: 16, name_acronym: 'LEC', broadcast_name: 'C LECLERC', team_name: 'Ferrari', team_colour: 'e80020', last_lap: '1:34.668', interval: '+3.700', tyre: '🟡 Medium', tyre_age: 9, pos: 3, progress: 180, lap: 3, speedFactor: 1.03, speed: 272 },
+  { driver_number: 55, name_acronym: 'SAI', broadcast_name: 'C SAINZ', team_name: 'Ferrari', team_colour: 'e80020', last_lap: '1:34.910', interval: '+5.550', tyre: '⚪ Hard', tyre_age: 12, pos: 4, progress: 170, lap: 3, speedFactor: 1.01, speed: 268 },
+  { driver_number: 4, name_acronym: 'NOR', broadcast_name: 'L NORRIS', team_name: 'McLaren', team_colour: 'ff8000', last_lap: '1:34.572', interval: '+7.400', tyre: '🟡 Medium', tyre_age: 7, pos: 5, progress: 160, lap: 3, speedFactor: 1.025, speed: 270 },
+  { driver_number: 81, name_acronym: 'PIA', broadcast_name: 'O PIASTRI', team_name: 'McLaren', team_colour: 'ff8000', last_lap: '1:35.380', interval: '+9.250', tyre: '⚪ Hard', tyre_age: 9, pos: 6, progress: 150, lap: 3, speedFactor: 1.015, speed: 265 },
+  { driver_number: 44, name_acronym: 'HAM', broadcast_name: 'L HAMILTON', team_name: 'Mercedes', team_colour: '27f4d2', last_lap: '1:35.240', interval: '+11.100', tyre: '🔴 Soft', tyre_age: 5, pos: 7, progress: 140, lap: 3, speedFactor: 1.01, speed: 267 },
+  { driver_number: 63, name_acronym: 'RUS', broadcast_name: 'G RUSSELL', team_name: 'Mercedes', team_colour: '27f4d2', last_lap: '1:35.112', interval: '+12.950', tyre: '🟡 Medium', tyre_age: 6, pos: 8, progress: 130, lap: 3, speedFactor: 1.005, speed: 266 },
+  { driver_number: 14, name_acronym: 'ALO', broadcast_name: 'F ALONSO', team_name: 'Aston Martin', team_colour: '229971', last_lap: '1:34.644', interval: '+14.800', tyre: '🟡 Medium', tyre_age: 11, pos: 9, progress: 120, lap: 3, speedFactor: 1.00, speed: 260 },
+  { driver_number: 18, name_acronym: 'STR', broadcast_name: 'L STROLL', team_name: 'Aston Martin', team_colour: '229971', last_lap: '1:34.692', interval: '+16.650', tyre: '⚪ Hard', tyre_age: 14, pos: 10, progress: 110, lap: 3, speedFactor: 0.99, speed: 258 },
+  { driver_number: 10, name_acronym: 'GAS', broadcast_name: 'P GASLY', team_name: 'Alpine', team_colour: 'ff66c4', last_lap: '1:34.596', interval: '+18.500', tyre: '🔴 Soft', tyre_age: 6, pos: 11, progress: 100, lap: 3, speedFactor: 0.985, speed: 255 },
+  { driver_number: 31, name_acronym: 'OCO', broadcast_name: 'E OCON', team_name: 'Alpine', team_colour: 'ff66c4', last_lap: '1:35.750', interval: '+20.350', tyre: '🟡 Medium', tyre_age: 9, pos: 12, progress: 90, lap: 3, speedFactor: 0.98, speed: 254 },
+  { driver_number: 23, name_acronym: 'ALB', broadcast_name: 'A ALBON', team_name: 'Williams', team_colour: '37bedd', last_lap: '1:34.820', interval: '+22.200', tyre: '⚪ Hard', tyre_age: 15, pos: 13, progress: 80, lap: 3, speedFactor: 0.985, speed: 256 },
+  { driver_number: 2, name_acronym: 'SAR', broadcast_name: 'L SARGEANT', team_name: 'Williams', team_colour: '37bedd', last_lap: '1:34.524', interval: '+24.050', tyre: '🟡 Medium', tyre_age: 10, pos: 14, progress: 70, lap: 3, speedFactor: 0.97, speed: 252 },
+  { driver_number: 22, name_acronym: 'TSU', broadcast_name: 'Y TSUNODA', team_name: 'RB', team_colour: '6692ff', last_lap: '1:35.010', interval: '+25.900', tyre: '🔴 Soft', tyre_age: 4, pos: 15, progress: 60, lap: 3, speedFactor: 0.98, speed: 253 },
+  { driver_number: 3, name_acronym: 'RIC', broadcast_name: 'D RICCIARDO', team_name: 'RB', team_colour: '6692ff', last_lap: '1:34.548', interval: '+27.750', tyre: '🟡 Medium', tyre_age: 8, pos: 16, progress: 50, lap: 3, speedFactor: 0.975, speed: 251 },
+  { driver_number: 77, name_acronym: 'BOT', broadcast_name: 'V BOTTAS', team_name: 'Kick Sauber', team_colour: '52e21e', last_lap: '1:35.610', interval: '+29.600', tyre: '⚪ Hard', tyre_age: 16, pos: 17, progress: 40, lap: 3, speedFactor: 0.97, speed: 250 },
+  { driver_number: 24, name_acronym: 'ZHO', broadcast_name: 'G ZHOU', team_name: 'Kick Sauber', team_colour: '52e21e', last_lap: '1:35.820', interval: '+31.450', tyre: '🟡 Medium', tyre_age: 11, pos: 18, progress: 30, lap: 3, speedFactor: 0.965, speed: 248 },
+  { driver_number: 27, name_acronym: 'HUL', broadcast_name: 'N HULKENBERG', team_name: 'Haas F1 Team', team_colour: 'b6babd', last_lap: '1:35.120', interval: '+33.300', tyre: '🔴 Soft', tyre_age: 5, pos: 19, progress: 20, lap: 3, speedFactor: 0.98, speed: 252 },
+  { driver_number: 20, name_acronym: 'MAG', broadcast_name: 'K MAGNUSSEN', team_name: 'Haas F1 Team', team_colour: 'b6babd', last_lap: '1:34.716', interval: '+35.150', tyre: '🟡 Medium', tyre_age: 12, pos: 20, progress: 10, lap: 3, speedFactor: 0.97, speed: 250 }
 ];
+
+const MOCK_DRIVERS_2021 = [
+  { driver_number: 33, name_acronym: 'VER', broadcast_name: 'M VERSTAPPEN', team_name: 'Red Bull Racing', team_colour: '3671c6' },
+  { driver_number: 44, name_acronym: 'HAM', broadcast_name: 'L HAMILTON', team_name: 'Mercedes', team_colour: '27f4d2' },
+  { driver_number: 77, name_acronym: 'BOT', broadcast_name: 'V BOTTAS', team_name: 'Mercedes', team_colour: '27f4d2' },
+  { driver_number: 11, name_acronym: 'PER', broadcast_name: 'S PEREZ', team_name: 'Red Bull Racing', team_colour: '3671c6' },
+  { driver_number: 4, name_acronym: 'NOR', broadcast_name: 'L NORRIS', team_name: 'McLaren', team_colour: 'ff8000' },
+  { driver_number: 3, name_acronym: 'RIC', broadcast_name: 'D RICCIARDO', team_name: 'McLaren', team_colour: 'ff8000' },
+  { driver_number: 55, name_acronym: 'SAI', broadcast_name: 'C SAINZ', team_name: 'Ferrari', team_colour: 'e80020' },
+  { driver_number: 16, name_acronym: 'LEC', broadcast_name: 'C LECLERC', team_name: 'Ferrari', team_colour: 'e80020' },
+  { driver_number: 10, name_acronym: 'GAS', broadcast_name: 'P GASLY', team_name: 'AlphaTauri', team_colour: '4e7c9b' },
+  { driver_number: 5, name_acronym: 'VET', broadcast_name: 'S VETTEL', team_name: 'Aston Martin', team_colour: '229971' },
+  { driver_number: 14, name_acronym: 'ALO', broadcast_name: 'F ALONSO', team_name: 'Alpine', team_colour: 'ff66c4' },
+  { driver_number: 31, name_acronym: 'OCO', broadcast_name: 'E OCON', team_name: 'Alpine', team_colour: 'ff66c4' },
+  { driver_number: 18, name_acronym: 'STR', broadcast_name: 'L STROLL', team_name: 'Aston Martin', team_colour: '229971' },
+  { driver_number: 22, name_acronym: 'TSU', broadcast_name: 'Y TSUNODA', team_name: 'AlphaTauri', team_colour: '4e7c9b' },
+  { driver_number: 63, name_acronym: 'RUS', broadcast_name: 'G RUSSELL', team_name: 'Williams', team_colour: '37bedd' },
+  { driver_number: 7, name_acronym: 'RAI', broadcast_name: 'K RAIKKONEN', team_name: 'Alfa Romeo', team_colour: '900000' },
+  { driver_number: 99, name_acronym: 'GIO', broadcast_name: 'A GIOVINAZZI', team_name: 'Alfa Romeo', team_colour: '900000' },
+  { driver_number: 47, name_acronym: 'MSC', broadcast_name: 'M SCHUMACHER', team_name: 'Haas F1 Team', team_colour: 'b6babd' },
+  { driver_number: 9, name_acronym: 'MAZ', broadcast_name: 'N MAZEPIN', team_name: 'Haas F1 Team', team_colour: 'b6babd' },
+  { driver_number: 6, name_acronym: 'LAT', broadcast_name: 'N LATIFI', team_name: 'Williams', team_colour: '37bedd' }
+];
+
+const MOCK_DRIVERS_2022 = [
+  { driver_number: 1, name_acronym: 'VER', broadcast_name: 'M VERSTAPPEN', team_name: 'Red Bull Racing', team_colour: '3671c6' },
+  { driver_number: 16, name_acronym: 'LEC', broadcast_name: 'C LECLERC', team_name: 'Ferrari', team_colour: 'e80020' },
+  { driver_number: 11, name_acronym: 'PER', broadcast_name: 'S PEREZ', team_name: 'Red Bull Racing', team_colour: '3671c6' },
+  { driver_number: 63, name_acronym: 'RUS', broadcast_name: 'G RUSSELL', team_name: 'Mercedes', team_colour: '27f4d2' },
+  { driver_number: 55, name_acronym: 'SAI', broadcast_name: 'C SAINZ', team_name: 'Ferrari', team_colour: 'e80020' },
+  { driver_number: 44, name_acronym: 'HAM', broadcast_name: 'L HAMILTON', team_name: 'Mercedes', team_colour: '27f4d2' },
+  { driver_number: 4, name_acronym: 'NOR', broadcast_name: 'L NORRIS', team_name: 'McLaren', team_colour: 'ff8000' },
+  { driver_number: 31, name_acronym: 'OCO', broadcast_name: 'E OCON', team_name: 'Alpine', team_colour: 'ff66c4' },
+  { driver_number: 14, name_acronym: 'ALO', broadcast_name: 'F ALONSO', team_name: 'Alpine', team_colour: 'ff66c4' },
+  { driver_number: 77, name_acronym: 'BOT', broadcast_name: 'V BOTTAS', team_name: 'Alfa Romeo', team_colour: '900000' },
+  { driver_number: 5, name_acronym: 'VET', broadcast_name: 'S VETTEL', team_name: 'Aston Martin', team_colour: '229971' },
+  { driver_number: 3, name_acronym: 'RIC', broadcast_name: 'D RICCIARDO', team_name: 'McLaren', team_colour: 'ff8000' },
+  { driver_number: 20, name_acronym: 'MAG', broadcast_name: 'K MAGNUSSEN', team_name: 'Haas F1 Team', team_colour: 'b6babd' },
+  { driver_number: 10, name_acronym: 'GAS', broadcast_name: 'P GASLY', team_name: 'AlphaTauri', team_colour: '4e7c9b' },
+  { driver_number: 18, name_acronym: 'STR', broadcast_name: 'L STROLL', team_name: 'Aston Martin', team_colour: '229971' },
+  { driver_number: 47, name_acronym: 'MSC', broadcast_name: 'M SCHUMACHER', team_name: 'Haas F1 Team', team_colour: 'b6babd' },
+  { driver_number: 22, name_acronym: 'TSU', broadcast_name: 'Y TSUNODA', team_name: 'AlphaTauri', team_colour: '4e7c9b' },
+  { driver_number: 24, name_acronym: 'ZHO', broadcast_name: 'G ZHOU', team_name: 'Alfa Romeo', team_colour: '900000' },
+  { driver_number: 23, name_acronym: 'ALB', broadcast_name: 'A ALBON', team_name: 'Williams', team_colour: '37bedd' },
+  { driver_number: 6, name_acronym: 'LAT', broadcast_name: 'N LATIFI', team_name: 'Williams', team_colour: '37bedd' }
+];
+
+const getGPPerformance = (acronym, meetingName = '', location = '', year = '2024') => {
+  const gp = `${meetingName || ''} ${location || ''}`.toLowerCase();
+  
+  // Default values
+  let pace = 1.0;
+  let tyre = '🟡 Medium';
+  let tyreAge = 8;
+
+  if (gp.includes('monaco')) {
+    if (acronym === 'LEC') { pace = 1.04; tyre = '🔴 Soft'; tyreAge = 3; }
+    else if (acronym === 'PIA') { pace = 1.03; tyre = '🔴 Soft'; tyreAge = 4; }
+    else if (acronym === 'SAI') { pace = 1.025; tyre = '🟡 Medium'; tyreAge = 6; }
+    else if (acronym === 'NOR') { pace = 1.02; tyre = '🟡 Medium'; tyreAge = 7; }
+    else if (acronym === 'VER') { pace = 1.015; tyre = '⚪ Hard'; tyreAge = 12; }
+    else if (acronym === 'HAM') { pace = 1.01; tyre = '⚪ Hard'; tyreAge = 14; }
+    else if (acronym === 'VET') { pace = 1.02; tyre = '🟡 Medium'; tyreAge = 8; } // 2021 Monaco specialty
+  } else if (gp.includes('silverstone') || gp.includes('british')) {
+    if (acronym === 'HAM') { pace = 1.04; tyre = '🔴 Soft'; tyreAge = 2; }
+    else if (acronym === 'VER') { pace = 1.035; tyre = '🟡 Medium'; tyreAge = 5; }
+    else if (acronym === 'NOR') { pace = 1.025; tyre = '🔴 Soft'; tyreAge = 4; }
+    else if (acronym === 'LEC') { pace = 1.015; tyre = '⚪ Hard'; tyreAge = 10; }
+  } else if (gp.includes('monza') || gp.includes('italy')) {
+    if (year === '2021') {
+      if (acronym === 'RIC') { pace = 1.04; tyre = '🟡 Medium'; tyreAge = 5; }
+      else if (acronym === 'NOR') { pace = 1.035; tyre = '🟡 Medium'; tyreAge = 4; }
+      else if (acronym === 'BOT') { pace = 1.03; tyre = '🔴 Soft'; tyreAge = 3; }
+      else if (acronym === 'LEC') { pace = 1.02; tyre = '⚪ Hard'; tyreAge = 12; }
+      else if (acronym === 'VER') { pace = 1.01; tyre = '⚪ Hard'; tyreAge = 15; }
+    } else {
+      if (acronym === 'VER') { pace = 1.04; tyre = '🟡 Medium'; tyreAge = 5; }
+      else if (acronym === 'SAI') { pace = 1.035; tyre = '🔴 Soft'; tyreAge = 3; }
+      else if (acronym === 'LEC') { pace = 1.03; tyre = '🔴 Soft'; tyreAge = 4; }
+    }
+  } else if (gp.includes('spa') || gp.includes('belgian')) {
+    if (acronym === 'VER') { pace = 1.045; tyre = '🟡 Medium'; tyreAge = 6; }
+    else if (acronym === 'HAM') { pace = 1.025; tyre = '⚪ Hard'; tyreAge = 10; }
+    else if (acronym === 'LEC') { pace = 1.02; tyre = '🔴 Soft'; tyreAge = 3; }
+  } else {
+    // Sakhir / Bahrain
+    if (acronym === 'VER') { pace = 1.04; tyre = '🔴 Soft'; tyreAge = 4; }
+    else if (acronym === 'PER') { pace = 1.03; tyre = '🟡 Medium'; tyreAge = 8; }
+    else if (acronym === 'SAI') { pace = 1.025; tyre = '⚪ Hard'; tyreAge = 12; }
+    else if (acronym === 'LEC') { pace = 1.02; tyre = '🟡 Medium'; tyreAge = 9; }
+    else if (acronym === 'HAM') { pace = 1.035; tyre = '🔴 Soft'; tyreAge = 5; } // 2021 Bahrain winner
+  }
+
+  pace += Math.random() * 0.005;
+  return { pace, tyre, tyreAge };
+};
+
 
 const MOCK_RACE_CONTROL = [
   "FIA: DRS ENABLED IN SECTOR 1 AND SECTOR 3",
@@ -149,6 +256,143 @@ const MOCK_RACE_CONTROL = [
   "FIA: GREEN FLAG - ALL SECTORS CLEAR",
   "FERRARI PIT: Leclerc, plan B, plan B. Monitor track temp, it is climbing."
 ];
+
+// ==========================================
+// HIGH-FIDELITY TEAM LOGO & TYRE BADGE COMPONENTS (F1 BROADCAST LAYOUT)
+// ==========================================
+const TeamLogo = ({ teamName, size = 16 }) => {
+  const name = (teamName || '').toLowerCase();
+  
+  if (name.includes('red bull')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{ verticalAlign: 'middle' }}>
+        <circle cx="8" cy="8" r="4.5" fill="#facc15" opacity="0.25" />
+        <path d="M 2 10 C 4 9 5 6 9 6 C 11 6 13 8 15 7 C 13 5 10 4 7 5 C 4 6 3 8 2 10 Z" fill="#facc15" />
+        <path d="M 1 12 C 3 11 4 8 8 8 C 10 8 12 10 14 9" stroke="#ef4444" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  if (name.includes('ferrari')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{ verticalAlign: 'middle' }}>
+        <path d="M 3 2 L 13 2 L 14 8 C 14 11 11 14 8 15 C 5 14 2 11 2 8 Z" fill="#facc15" stroke="#1f2937" strokeWidth="0.5" />
+        <path d="M 5 5 C 6 4 7 4 8 8 L 9 10" stroke="#000000" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <rect x="3" y="1" width="10" height="1.2" fill="#22c55e" />
+      </svg>
+    );
+  }
+  if (name.includes('mercedes')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{ verticalAlign: 'middle' }}>
+        <circle cx="8" cy="8" r="6.5" stroke="#94a3b8" strokeWidth="1.2" fill="none" />
+        <line x1="8" y1="1.5" x2="8" y2="8" stroke="#94a3b8" strokeWidth="1.5" strokeLinecap="round" />
+        <line x1="8" y1="8" x2="3" y2="11" stroke="#94a3b8" strokeWidth="1.5" strokeLinecap="round" />
+        <line x1="8" y1="8" x2="13" y2="11" stroke="#94a3b8" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  if (name.includes('mclaren')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{ verticalAlign: 'middle' }}>
+        <path d="M 2 11 C 6 11 11 8 13 3 C 10 6 6 7 2 11 Z" fill="#ff8000" />
+      </svg>
+    );
+  }
+  if (name.includes('aston martin')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{ verticalAlign: 'middle' }}>
+        <path d="M 1 7 C 4 7 6 5 8 8 C 10 5 12 7 15 7 C 12 9 10 9 8 8 C 6 9 4 9 1 7 Z" fill="#065f46" stroke="#cbd5e1" strokeWidth="0.5" />
+        <line x1="8" y1="4" x2="8" y2="9" stroke="#cbd5e1" strokeWidth="0.8" />
+      </svg>
+    );
+  }
+  if (name.includes('alpine')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{ verticalAlign: 'middle' }}>
+        <path d="M 3 13 L 8 2 L 13 13 M 4.5 10 L 11.5 10" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M 8 7 L 11 10" stroke="#ef4444" strokeWidth="1.2" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  if (name.includes('williams')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{ verticalAlign: 'middle' }}>
+        <path d="M 2 4 L 5 12 L 8 6 L 11 12 L 14 4" stroke="#005aff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      </svg>
+    );
+  }
+  if (name.includes('haas')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{ verticalAlign: 'middle' }}>
+        <circle cx="8" cy="8" r="6.5" stroke="#cbd5e1" strokeWidth="1" fill="none" />
+        <path d="M 5 4 L 5 12 M 11 4 L 11 12 M 5 8 L 11 8" stroke="#ef4444" strokeWidth="1.8" strokeLinecap="round" />
+        <circle cx="8" cy="8" r="4.5" stroke="#ef4444" strokeWidth="0.8" fill="none" strokeDasharray="1,1" />
+      </svg>
+    );
+  }
+  if (name.includes('sauber') || name.includes('stake') || name.includes('alfa romeo')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{ verticalAlign: 'middle' }}>
+        <path d="M 8 1.5 L 8 14.5 M 1.5 8 L 14.5 8" stroke="#52e21e" strokeWidth="2.2" strokeLinecap="round" />
+        <circle cx="8" cy="8" r="3.2" fill="none" stroke="#090d16" strokeWidth="1" />
+      </svg>
+    );
+  }
+  // Generic Fallback crest for other teams (e.g. RB / AlphaTauri)
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{ verticalAlign: 'middle' }}>
+      <path d="M 3 2 L 13 2 L 14 8 C 14 11 11 14 8 15 C 5 14 2 11 2 8 Z" fill="#3b82f6" stroke="#475569" strokeWidth="0.8" />
+      <polygon points="8,4 9.5,7 13,7.5 10.5,10 11,13.5 8,11.5 5,13.5 5.5,10 3,7.5 6.5,7" fill="#facc15" />
+    </svg>
+  );
+};
+
+const renderTyreBadge = (tyreString) => {
+  const ts = (tyreString || '').toLowerCase();
+  let bg = '#ef4444'; // Red
+  let color = '#ffffff'; // White
+  let char = 'S';
+  
+  if (ts.includes('medium')) {
+    bg = '#f59e0b'; // Yellow/Gold
+    color = '#000000'; // Black
+    char = 'M';
+  } else if (ts.includes('hard')) {
+    bg = '#ffffff'; // White
+    color = '#000000'; // Black
+    char = 'H';
+  } else if (ts.includes('inter')) {
+    bg = '#10b981'; // Green
+    color = '#ffffff'; // White
+    char = 'I';
+  } else if (ts.includes('wet')) {
+    bg = '#3b82f6'; // Blue
+    color = '#ffffff'; // White
+    char = 'W';
+  }
+
+  return (
+    <div
+      style={{
+        width: '15px',
+        height: '15px',
+        borderRadius: '50%',
+        backgroundColor: bg,
+        color: color,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '9px',
+        fontWeight: '900',
+        fontFamily: 'monospace',
+        boxShadow: '0 0 4px rgba(0,0,0,0.5)',
+        border: '1px solid rgba(0,0,0,0.2)'
+      }}
+    >
+      {char}
+    </div>
+  );
+};
 
 const Dashboard = () => {
   const { user, logout, accessToken } = useAuth();
@@ -178,221 +422,6 @@ const Dashboard = () => {
   const [telemetryHistory, setTelemetryHistory] = useState([]);
   const [compareHistory, setCompareHistory] = useState([]);
   const timerRef = useRef(null);
-
-  // Active driver details helper
-  const activeDriverInfo = drivers.find(d => d.driver_number === selectedDriver) || MOCK_DRIVERS[0];
-  const compareDriverInfo = compareDriver ? drivers.find(d => d.driver_number === compareDriver) : null;
-
-  // Track map dynamic bounds calculation
-  const xCoords = trackPath.map(p => p.x);
-  const yCoords = trackPath.map(p => p.y);
-  const minX = xCoords.length ? Math.min(...xCoords) : -1000;
-  const maxX = xCoords.length ? Math.max(...xCoords) : 8000;
-  const minY = yCoords.length ? Math.min(...yCoords) : -4000;
-  const maxY = yCoords.length ? Math.max(...yCoords) : 9000;
-
-  const dx = maxX - minX || 1;
-  const dy = maxY - minY || 1;
-  const padding = 15;
-  const svgW = 400;
-  const svgH = 260;
-
-  // Map coordinate bounds dynamically to fits SVG viewBox
-  const scaleX = (x) => padding + ((x - minX) / dx) * (svgW - 2 * padding);
-  const scaleY = (y) => padding + (1 - (y - minY) / dy) * (svgH - 2 * padding); // Inverted Y
-
-  const getInterpolatedCoords = (progress) => {
-    if (!trackPath || trackPath.length === 0) return { x: 0, y: 0 };
-    const i = Math.floor(progress) % trackPath.length;
-    const nextIdx = (i + 1) % trackPath.length;
-    const t = progress - Math.floor(progress);
-    
-    const p1 = trackPath[i];
-    const p2 = trackPath[nextIdx];
-    
-    return {
-      x: p1.x + (p2.x - p1.x) * t,
-      y: p1.y + (p2.y - p1.y) * t
-    };
-  };
-
-  const activeDriverObj = drivers.find(d => d.driver_number === selectedDriver);
-  const compareDriverObj = compareDriver ? drivers.find(d => d.driver_number === compareDriver) : null;
-
-  const activeCoords = activeDriverObj ? getInterpolatedCoords(activeDriverObj.progress) : (trackPath[0] || { x: 0, y: 0 });
-  const compareCoords = compareDriverObj ? getInterpolatedCoords(compareDriverObj.progress) : null;
-
-  // Active driver telemetry HUD state
-  const currentTelemetry = activeDriverObj
-    ? {
-        ...getDynamicTelemetry(Math.floor(activeDriverObj.progress) % trackPath.length, activeDriverObj.driver_number),
-        speed: activeDriverObj.speed || 250
-      }
-    : { speed: 0, rpm: 0, throttle: 0, brake: 0, gear: 'N', drs: 0 };
-
-  // ==========================================
-  // FETCH 1: DYNAMIC MEETING LIST ON YEAR SELECTION
-  // ==========================================
-  const loadMeetingsForYear = useCallback(async (year) => {
-    if (year === '2022') {
-      setMeetings(MOCK_MEETINGS_2022);
-      setSelectedMeetingKey(MOCK_MEETINGS_2022[0].meeting_key.toString());
-      return;
-    }
-    if (year === '2021') {
-      setMeetings(MOCK_MEETINGS_2021);
-      setSelectedMeetingKey(MOCK_MEETINGS_2021[0].meeting_key.toString());
-      return;
-    }
-    try {
-      const res = await axios.get(`https://api.openf1.org/v1/meetings?year=${year}`);
-      if (res.data && res.data.length > 0) {
-        const filtered = res.data.filter(m => !m.meeting_name.includes('Testing') && !m.is_cancelled);
-        setMeetings(filtered);
-        // Auto-select the first Grand Prix of the year
-        setSelectedMeetingKey(filtered[0].meeting_key.toString());
-      }
-    } catch (err) {
-      console.warn("Failed to fetch meetings. Offline fallback active.", err);
-      setMeetings(MOCK_MEETINGS_2022);
-      setSelectedMeetingKey(MOCK_MEETINGS_2022[0].meeting_key.toString());
-    }
-  }, []);
-
-  useEffect(() => {
-    loadMeetingsForYear(selectedYear);
-  }, [selectedYear, loadMeetingsForYear]);
-
-  // ==========================================
-  // FETCH 2: DYNAMIC DATA LOAD ON GRAND PRIX SELECTION
-  // ==========================================
-  const loadGrandPrixData = useCallback(async (meetingKey) => {
-    setLoading(true);
-    try {
-      const selectedM = meetings.find(m => m.meeting_key.toString() === meetingKey.toString());
-      const isOfflineYear = selectedYear === '2021' || selectedYear === '2022';
-      
-      let activeSessionKey = 'offline';
-      let driversData = [];
-      let weatherData = null;
-      let pathData = null;
-
-      if (!isOfflineYear) {
-        try {
-          // 1. Fetch Session Key for the Grand Prix race
-          const sessionRes = await axios.get(`https://api.openf1.org/v1/sessions?meeting_key=${meetingKey}&session_name=Race`);
-          if (sessionRes.data && sessionRes.data.length > 0) {
-            activeSessionKey = sessionRes.data[0].session_key;
-            setSessionKey(activeSessionKey.toString());
-
-            // 2. Fetch Drivers list
-            const driversRes = await axios.get(`https://api.openf1.org/v1/drivers?session_key=${activeSessionKey}`);
-            if (driversRes.data && driversRes.data.length > 0) {
-              driversData = driversRes.data.slice(0, 10);
-            }
-
-            // 3. Dynamic Circuit Map: Fetch exactly one clean racing lap dynamically
-            const leadDriverNum = driversData.length > 0 ? driversData[0].driver_number : 1;
-            const lapsRes = await axios.get(`https://api.openf1.org/v1/laps?session_key=${activeSessionKey}&driver_number=${leadDriverNum}`);
-            if (lapsRes.data && lapsRes.data.length > 5) {
-              const lap3 = lapsRes.data.find(l => l.lap_number === 3);
-              const lap4 = lapsRes.data.find(l => l.lap_number === 4);
-              if (lap3 && lap4) {
-                const locRes = await axios.get(`https://api.openf1.org/v1/location?session_key=${activeSessionKey}&driver_number=${leadDriverNum}&date>=${lap3.date_start}&date<=${lap4.date_start}`);
-                if (locRes.data && locRes.data.length > 5) {
-                  const downsampled = [];
-                  const skip = Math.max(1, Math.floor(locRes.data.length / 120));
-                  for (let i = 0; i < locRes.data.length; i += skip) {
-                    downsampled.push({ x: locRes.data[i].x, y: locRes.data[i].y });
-                  }
-                  if (downsampled.length > 10) {
-                    pathData = downsampled;
-                  }
-                }
-              }
-            }
-
-            // 4. Fetch Weather metrics
-            const weatherRes = await axios.get(`https://api.openf1.org/v1/weather?session_key=${activeSessionKey}`);
-            if (weatherRes.data && weatherRes.data.length > 0) {
-              const latest = weatherRes.data[weatherRes.data.length - 1];
-              weatherData = {
-                air_temp: latest.air_temperature || 19,
-                track_temp: latest.track_temperature || 26.5,
-                humidity: latest.humidity || 45,
-                wind_speed: latest.wind_speed || 1.1,
-                rainfall: latest.rainfall || 0
-              };
-            }
-          }
-        } catch (apiErr) {
-          console.warn("OpenF1 API call failed, falling back to local simulation.", apiErr);
-        }
-      }
-
-      // If we don't have drivers data, populate with mock drivers
-      if (driversData.length === 0) {
-        driversData = [
-          { driver_number: 1, name_acronym: 'VER', broadcast_name: 'M VERSTAPPEN', team_name: 'Red Bull Racing', team_colour: '3671c6' },
-          { driver_number: 44, name_acronym: 'HAM', broadcast_name: 'L HAMILTON', team_name: 'Mercedes', team_colour: '27f4d2' },
-          { driver_number: 16, name_acronym: 'LEC', broadcast_name: 'C LECLERC', team_name: 'Ferrari', team_colour: 'e80020' },
-          { driver_number: 4, name_acronym: 'NOR', broadcast_name: 'L NORRIS', team_name: 'McLaren', team_colour: 'ff8000' },
-          { driver_number: 63, name_acronym: 'RUS', broadcast_name: 'G RUSSELL', team_name: 'Mercedes', team_colour: '27f4d2' },
-          { driver_number: 55, name_acronym: 'SAI', broadcast_name: 'C SAINZ', team_name: 'Ferrari', team_colour: 'e80020' },
-          { driver_number: 11, name_acronym: 'PER', broadcast_name: 'S PEREZ', team_name: 'Red Bull Racing', team_colour: '3671c6' },
-          { driver_number: 81, name_acronym: 'PIA', broadcast_name: 'O PIASTRI', team_name: 'McLaren', team_colour: 'ff8000' },
-          { driver_number: 14, name_acronym: 'ALO', broadcast_name: 'F ALONSO', team_name: 'Aston Martin', team_colour: '229971' },
-          { driver_number: 10, name_acronym: 'GAS', broadcast_name: 'P GASLY', team_name: 'Alpine', team_colour: 'ff66c4' }
-        ];
-      }
-
-      // Resolve Track path from DB or fallback
-      const resolvedPath = pathData || getOfflineTrackPath(selectedM?.meeting_name, selectedM?.location);
-      setTrackPath(resolvedPath);
-
-      // Map dynamic drivers simulation state
-      const mappedDrivers = driversData.map((d, index) => {
-        const startProgress = Math.max(0, resolvedPath.length - index * (resolvedPath.length / driversData.length));
-        return {
-          driver_number: d.driver_number,
-          name_acronym: d.name_acronym,
-          broadcast_name: d.broadcast_name,
-          team_name: d.team_name,
-          team_colour: d.team_colour || 'cccccc',
-          last_lap: index === 0 ? '1:34.128' : `1:34.${500 + index * 24}`,
-          interval: index === 0 ? 'LEADER' : `+${(index * 1.85).toFixed(3)}`,
-          tyre: index % 3 === 0 ? '🔴 Soft' : index % 3 === 1 ? '🟡 Medium' : '⚪ Hard',
-          tyre_age: 4 + index * 2,
-          pos: index + 1,
-          lap: 3,
-          progress: startProgress,
-          speedFactor: 1.0 + (driversData.length - index) * 0.003,
-          speed: 250
-        };
-      });
-
-      setDrivers(mappedDrivers);
-      setSelectedDriver(mappedDrivers[0].driver_number);
-      setCompareDriver(null);
-
-      // Weather fallback
-      if (!weatherData) {
-        weatherData = { air_temp: 21.2, track_temp: 31.4, humidity: 38, wind_speed: 1.8, rainfall: 0 };
-      }
-      setWeather(weatherData);
-
-    } catch (err) {
-      console.error("Critical error in loadGrandPrixData", err);
-    } finally {
-      setLoading(false);
-    }
-  }, [meetings, selectedYear]);
-
-  useEffect(() => {
-    if (selectedMeetingKey) {
-      loadGrandPrixData(selectedMeetingKey);
-    }
-  }, [selectedMeetingKey, loadGrandPrixData]);
 
   // Dynamic Telemetry Generator
   const getDynamicTelemetry = (index, driverNum) => {
@@ -456,6 +485,266 @@ const Dashboard = () => {
     return { speed, rpm, throttle, brake, gear, drs };
   };
 
+
+  // Active driver details helper
+  const activeDriverInfo = drivers.find(d => d.driver_number === selectedDriver) || MOCK_DRIVERS[0];
+  const compareDriverInfo = compareDriver ? drivers.find(d => d.driver_number === compareDriver) : null;
+
+  // Track map dynamic bounds calculation
+  const xCoords = trackPath.map(p => p.x);
+  const yCoords = trackPath.map(p => p.y);
+  const minX = xCoords.length ? Math.min(...xCoords) : -1000;
+  const maxX = xCoords.length ? Math.max(...xCoords) : 8000;
+  const minY = yCoords.length ? Math.min(...yCoords) : -4000;
+  const maxY = yCoords.length ? Math.max(...yCoords) : 9000;
+
+  const dx = maxX - minX || 1;
+  const dy = maxY - minY || 1;
+  const padding = 15;
+  const svgW = 400;
+  const svgH = 260;
+
+  // Map coordinate bounds dynamically to fits SVG viewBox
+  const scaleX = (x) => padding + ((x - minX) / dx) * (svgW - 2 * padding);
+  const scaleY = (y) => padding + (1 - (y - minY) / dy) * (svgH - 2 * padding); // Inverted Y
+
+  const getInterpolatedCoords = (progress) => {
+    if (!trackPath || trackPath.length === 0) return { x: 0, y: 0 };
+    const i = Math.floor(progress) % trackPath.length;
+    const nextIdx = (i + 1) % trackPath.length;
+    const t = progress - Math.floor(progress);
+    
+    const p1 = trackPath[i];
+    const p2 = trackPath[nextIdx];
+    
+    return {
+      x: p1.x + (p2.x - p1.x) * t,
+      y: p1.y + (p2.y - p1.y) * t
+    };
+  };
+
+  const activeDriverObj = drivers.find(d => d.driver_number === selectedDriver);
+  const compareDriverObj = compareDriver ? drivers.find(d => d.driver_number === compareDriver) : null;
+
+  const activeCoords = activeDriverObj ? getInterpolatedCoords(activeDriverObj.progress) : (trackPath[0] || { x: 0, y: 0 });
+  const compareCoords = compareDriverObj ? getInterpolatedCoords(compareDriverObj.progress) : null;
+
+  // Active driver telemetry HUD state
+  const currentTelemetry = activeDriverObj
+    ? {
+        ...getDynamicTelemetry(Math.floor(activeDriverObj.progress) % trackPath.length, activeDriverObj.driver_number),
+        speed: activeDriverObj.speed || 250
+      }
+    : { speed: 0, rpm: 0, throttle: 0, brake: 0, gear: 'N', drs: 0 };
+
+  const getTyreColor = (temp, isRear = false) => {
+    if (isRear) {
+      if (temp > 110) return '#ef4444'; // Red (hot)
+      return '#10b981';                  // Green (optimal)
+    } else {
+      if (temp > 110) return '#ef4444'; // Red (hot)
+      if (temp > 98) return '#f97316';  // Orange (warm)
+      return '#10b981';                  // Green (optimal)
+    }
+  };
+
+  // Compute reactive tyre and brake thermal metrics based on telemetry inputs
+  const speedVal = currentTelemetry.speed || 0;
+  const throttleVal = currentTelemetry.throttle || 0;
+  const brakeVal = currentTelemetry.brake || 0;
+  const progressVal = activeDriverObj?.progress || 0;
+
+  // Brake temperature calculations (heat up under braking, cool down on straights)
+  const flBrakeTemp = Math.round(380 + (brakeVal * 4.2) + (speedVal * 0.05) + (progressVal % 7) * 0.8);
+  const frBrakeTemp = Math.round(375 + (brakeVal * 4.0) + (speedVal * 0.04) + (progressVal % 5) * 0.9);
+  const rlBrakeTemp = Math.round(340 + (brakeVal * 3.5) + (speedVal * 0.03) + (progressVal % 6) * 0.7);
+  const rrBrakeTemp = Math.round(335 + (brakeVal * 3.4) + (speedVal * 0.03) + (progressVal % 4) * 0.8);
+
+  // Tyre temperature calculations (heat up at high speed and cornering load)
+  const isCornering = brakeVal > 15 || speedVal < 160;
+  const flTyreTemp = Math.round(92 + (speedVal * 0.06) + (isCornering ? 12 : 0) + (progressVal % 3) * 0.4);
+  const frTyreTemp = Math.round(91 + (speedVal * 0.06) + (isCornering ? 11 : 0) + (progressVal % 4) * 0.3);
+  const rlTyreTemp = Math.round(95 + (speedVal * 0.05) + (isCornering ? 8 : 0) + (progressVal % 2) * 0.5);
+  const rrTyreTemp = Math.round(94 + (speedVal * 0.05) + (isCornering ? 9 : 0) + (progressVal % 5) * 0.3);
+
+  // Tyre pressure calculations (ideal gas law: rises with temperature)
+  const flTyrePress = (1.1 + (flTyreTemp - 90) * 0.004).toFixed(1);
+  const frTyrePress = (1.1 + (frTyreTemp - 90) * 0.004).toFixed(1);
+  const rlTyrePress = (1.2 + (rlTyreTemp - 90) * 0.004).toFixed(1);
+  const rrTyrePress = (1.2 + (rrTyreTemp - 90) * 0.004).toFixed(1);
+
+  // ==========================================
+  // FETCH 1: DYNAMIC MEETING LIST ON YEAR SELECTION
+  // ==========================================
+  const loadMeetingsForYear = useCallback(async (year) => {
+    if (year === '2022') {
+      setMeetings(MOCK_MEETINGS_2022);
+      setSelectedMeetingKey(MOCK_MEETINGS_2022[0].meeting_key.toString());
+      return;
+    }
+    if (year === '2021') {
+      setMeetings(MOCK_MEETINGS_2021);
+      setSelectedMeetingKey(MOCK_MEETINGS_2021[0].meeting_key.toString());
+      return;
+    }
+    try {
+      const res = await axios.get(`https://api.openf1.org/v1/meetings?year=${year}`);
+      if (res.data && res.data.length > 0) {
+        const filtered = res.data.filter(m => !m.meeting_name.includes('Testing') && !m.is_cancelled);
+        setMeetings(filtered);
+        // Auto-select the first Grand Prix of the year
+        setSelectedMeetingKey(filtered[0].meeting_key.toString());
+      }
+    } catch (err) {
+      console.warn("Failed to fetch meetings. Offline fallback active.", err);
+      setMeetings(MOCK_MEETINGS_2022);
+      setSelectedMeetingKey(MOCK_MEETINGS_2022[0].meeting_key.toString());
+    }
+  }, []);
+
+  useEffect(() => {
+    loadMeetingsForYear(selectedYear);
+  }, [selectedYear, loadMeetingsForYear]);
+
+  // ==========================================
+  // FETCH 2: DYNAMIC DATA LOAD ON GRAND PRIX SELECTION
+  // ==========================================
+  const loadGrandPrixData = useCallback(async (meetingKey) => {
+    setLoading(true);
+    try {
+      const selectedM = meetings.find(m => m.meeting_key.toString() === meetingKey.toString());
+      const isOfflineYear = selectedYear === '2021' || selectedYear === '2022';
+      
+      let activeSessionKey = 'offline';
+      let driversData = [];
+      let weatherData = null;
+      let pathData = null;
+
+      if (!isOfflineYear) {
+        try {
+          // 1. Fetch Session Key for the Grand Prix race
+          const sessionRes = await axios.get(`https://api.openf1.org/v1/sessions?meeting_key=${meetingKey}&session_name=Race`);
+          if (sessionRes.data && sessionRes.data.length > 0) {
+            activeSessionKey = sessionRes.data[0].session_key;
+            setSessionKey(activeSessionKey.toString());
+
+            // 2. Fetch Drivers list
+            const driversRes = await axios.get(`https://api.openf1.org/v1/drivers?session_key=${activeSessionKey}`);
+            if (driversRes.data && driversRes.data.length > 0) {
+              driversData = driversRes.data;
+            }
+
+            // 3. Dynamic Circuit Map: Fetch exactly one clean racing lap dynamically
+            const leadDriverNum = driversData.length > 0 ? driversData[0].driver_number : 1;
+            const lapsRes = await axios.get(`https://api.openf1.org/v1/laps?session_key=${activeSessionKey}&driver_number=${leadDriverNum}`);
+            if (lapsRes.data && lapsRes.data.length > 5) {
+              const lap3 = lapsRes.data.find(l => l.lap_number === 3);
+              const lap4 = lapsRes.data.find(l => l.lap_number === 4);
+              if (lap3 && lap4) {
+                const locRes = await axios.get(`https://api.openf1.org/v1/location?session_key=${activeSessionKey}&driver_number=${leadDriverNum}&date>=${lap3.date_start}&date<=${lap4.date_start}`);
+                if (locRes.data && locRes.data.length > 5) {
+                  const downsampled = [];
+                  const skip = Math.max(1, Math.floor(locRes.data.length / 120));
+                  for (let i = 0; i < locRes.data.length; i += skip) {
+                    downsampled.push({ x: locRes.data[i].x, y: locRes.data[i].y });
+                  }
+                  if (downsampled.length > 10) {
+                    pathData = downsampled;
+                  }
+                }
+              }
+            }
+
+            // 4. Fetch Weather metrics
+            const weatherRes = await axios.get(`https://api.openf1.org/v1/weather?session_key=${activeSessionKey}`);
+            if (weatherRes.data && weatherRes.data.length > 0) {
+              const latest = weatherRes.data[weatherRes.data.length - 1];
+              weatherData = {
+                air_temp: latest.air_temperature || 19,
+                track_temp: latest.track_temperature || 26.5,
+                humidity: latest.humidity || 45,
+                wind_speed: latest.wind_speed || 1.1,
+                rainfall: latest.rainfall || 0
+              };
+            }
+          }
+        } catch (apiErr) {
+          console.warn("OpenF1 API call failed, falling back to local simulation.", apiErr);
+        }
+      }
+
+      // If we don't have drivers data, populate with mock drivers based on the selected year
+      if (driversData.length === 0) {
+        if (selectedYear === '2021') {
+          driversData = MOCK_DRIVERS_2021;
+        } else if (selectedYear === '2022') {
+          driversData = MOCK_DRIVERS_2022;
+        } else {
+          driversData = MOCK_DRIVERS;
+        }
+      }
+
+      // Resolve Track path from DB or fallback
+      const resolvedPath = pathData || getOfflineTrackPath(selectedM?.meeting_name, selectedM?.location);
+      setTrackPath(resolvedPath);
+
+      // Map dynamic drivers simulation state
+      const mappedDrivers = driversData.map((d, index) => {
+        const perf = getGPPerformance(d.name_acronym, selectedM?.meeting_name, selectedM?.location, selectedYear);
+        return {
+          driver_number: d.driver_number,
+          name_acronym: d.name_acronym,
+          broadcast_name: d.broadcast_name,
+          team_name: d.team_name,
+          team_colour: d.team_colour || 'cccccc',
+          last_lap: index === 0 ? '1:34.128' : `1:34.${500 + index * 24}`,
+          interval: index === 0 ? 'LEADER' : `+${(index * 1.85).toFixed(3)}`,
+          tyre: perf.tyre,
+          tyre_age: perf.tyreAge,
+          pos: index + 1,
+          lap: 3,
+          progress: 0,
+          speedFactor: perf.pace,
+          speed: 250
+        };
+      })
+      // Sort drivers by speedFactor descending to set qualifying grid position realistically
+      .sort((a, b) => b.speedFactor - a.speedFactor)
+      // Map initial positions and progress coordinates along the grid
+      .map((d, index) => {
+        const startProgress = Math.max(0, resolvedPath.length - index * (resolvedPath.length / driversData.length));
+        return {
+          ...d,
+          pos: index + 1,
+          progress: startProgress,
+          interval: index === 0 ? 'LEADER' : `+${(index * 1.85).toFixed(3)}`
+        };
+      });
+
+      setDrivers(mappedDrivers);
+      setSelectedDriver(mappedDrivers[0].driver_number);
+      setCompareDriver(null);
+
+      // Weather fallback
+      if (!weatherData) {
+        weatherData = { air_temp: 21.2, track_temp: 31.4, humidity: 38, wind_speed: 1.8, rainfall: 0 };
+      }
+      setWeather(weatherData);
+
+    } catch (err) {
+      console.error("Critical error in loadGrandPrixData", err);
+    } finally {
+      setLoading(false);
+    }
+  }, [meetings, selectedYear]);
+
+  useEffect(() => {
+    if (selectedMeetingKey) {
+      loadGrandPrixData(selectedMeetingKey);
+    }
+  }, [selectedMeetingKey, loadGrandPrixData]);
+
+
   // ==========================================
   // PLAYBACK REPLAY ENGINE & DYNAMIC LEADERBOARD
   // ==========================================
@@ -494,7 +783,7 @@ const Dashboard = () => {
           // Exact time-calibrated physical step delta:
           const lapSeconds = parseLapTimeToSeconds(d.last_lap);
           const dt = 0.06; // 60ms interval is 0.06s
-          const stepDelta = trackPath.length * (dt / lapSeconds) * (speed / 220);
+          const stepDelta = trackPath.length * (dt / lapSeconds) * (speed / 280);
           
           let nextProgress = d.progress + stepDelta;
           let nextLap = d.lap || 3;
@@ -520,7 +809,7 @@ const Dashboard = () => {
             lap: nextLap,
             tyre_age: nextTyreAge,
             last_lap: nextLastLap,
-            speed: Math.round(speed)
+            speed: Math.min(340, Math.round(speed))
           };
         });
 
@@ -631,54 +920,116 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container f1-dark-theme" style={{ backgroundColor: '#0b0f19' }}>
       {/* SIDEBAR: Aegis Controls */}
-      <aside className="sidebar" style={{ backgroundColor: '#111827', borderRight: '1px solid #1f2937' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '32px', paddingLeft: '8px' }}>
-          <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'linear-gradient(135deg, var(--neon-cyan) 0%, #0369a1 100%)', display: 'flex', alignItems: 'center', justifyItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
-            <span style={{ fontSize: '14px', fontWeight: 'bold', color: 'black' }}>A</span>
+      <aside className="sidebar" style={{ backgroundColor: '#090d16', borderRight: '1px solid #1f2937', padding: '12px 10px' }}>
+
+        {/* Sidebar menu removed according to user request */}
+
+        {/* ==========================================
+            F1 TV BROADCAST LEADERS BOARD (SIDEBAR)
+            ========================================== */}
+        <div 
+          style={{
+            margin: '12px 0',
+            borderRadius: '6px',
+            backgroundColor: 'rgba(10, 15, 23, 0.75)',
+            border: '1px solid rgba(71, 85, 105, 0.3)',
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
+            flex: 1,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
+            minHeight: '260px'
+          }}
+        >
+          {/* F1 Broadcast Header Banner */}
+          <div 
+            style={{
+              background: '#0a0f1d',
+              padding: '8px 12px',
+              borderBottom: '2.5px solid #e10600',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '2px'
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <svg width="42" height="10" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '6px' }}>
+                  <path d="M0 30H17.2L22.5 12H48.3L45.7 0H21.2C10.6 0 0 10.6 0 21.2V30ZM53 30H70.2L83.4 0H66.2L53 30ZM76.7 30H93.9L107.1 0H89.9L76.7 30Z" fill="#e10600" />
+                </svg>
+                <span style={{ fontSize: '8px', color: '#9ca3af', fontWeight: '800', letterSpacing: '0.05em' }}>LIVE FEED</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: 'var(--neon-green)', display: 'inline-block', boxShadow: '0 0 6px var(--neon-green)' }}></span>
+                <span style={{ fontSize: '8px', color: 'var(--neon-green)', fontWeight: '800', letterSpacing: '0.05em' }}>RACE</span>
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginTop: '2px' }}>
+              <h4 style={{ fontSize: '11px', color: '#ffffff', fontWeight: '800', margin: 0, textTransform: 'uppercase', letterSpacing: '0.02em', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', maxWidth: '130px' }}>
+                {meetings.find(m => m.meeting_key.toString() === selectedMeetingKey)?.location || 'Sakhir'} GP
+              </h4>
+              <span style={{ fontSize: '9px', color: 'var(--neon-cyan)', fontWeight: '800', fontFamily: 'monospace' }}>
+                LAP {drivers[0]?.lap || 1}/50
+              </span>
+            </div>
           </div>
-          <div>
-            <h3 style={{ fontSize: '15px', color: '#f9fafb', fontWeight: '700', lineHeight: '1.2' }}>Aegis Portal</h3>
-            <span style={{ fontSize: '10px', color: 'var(--neon-cyan)', fontWeight: '700', letterSpacing: '0.05em' }}>TELEMETRY OK</span>
+
+          {/* Leaderboard Drivers List */}
+          <div 
+            className="sidebar-leaderboard-list"
+            style={{ 
+              overflowY: 'auto', 
+              flex: 1, 
+              padding: '2px 0' 
+            }}
+          >
+            {drivers.map((d, index) => {
+              const isSelected = selectedDriver === d.driver_number;
+              return (
+                <div
+                  key={d.driver_number}
+                  onClick={() => setSelectedDriver(d.driver_number)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '8px 10px',
+                    cursor: 'pointer',
+                    backgroundColor: isSelected ? 'rgba(34, 211, 238, 0.12)' : 'transparent',
+                    borderLeft: `3px solid #${d.team_colour}`,
+                    borderBottom: '1px solid rgba(31, 41, 55, 0.25)',
+                    transition: 'all 0.15s'
+                  }}
+                  className="leaderboard-sidebar-row font-medium"
+                >
+                  {/* Position Column */}
+                  <span style={{ width: '16px', fontSize: '10px', fontWeight: '800', color: isSelected ? '#ffffff' : '#9ca3af', fontFamily: 'monospace' }}>
+                    {index + 1}
+                  </span>
+
+                  {/* Team Logo */}
+                  <div style={{ width: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '6px' }}>
+                    <TeamLogo teamName={d.team_name} size={14} />
+                  </div>
+
+                  {/* Driver Acronym */}
+                  <span style={{ flex: 1, fontSize: '11px', fontWeight: '800', color: isSelected ? '#ffffff' : '#e2e8f0', letterSpacing: '0.02em' }}>
+                    {d.name_acronym}
+                  </span>
+
+                  {/* Gap / Interval */}
+                  <span style={{ fontSize: '9px', fontWeight: '700', color: index === 0 ? 'var(--neon-green)' : '#9ca3af', fontFamily: 'monospace', marginRight: '8px' }}>
+                    {index === 0 ? 'Leader' : d.interval}
+                  </span>
+
+                  {/* Tyre Badge */}
+                  <div>
+                    {renderTyreBadge(d.tyre)}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
-
-        <nav style={{ display: 'flex', flexDirection: 'column', gap: '6px', flex: 1 }}>
-          <button
-            onClick={() => setActiveTab('pitwall')}
-            style={{
-              display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '10px 14px', borderRadius: '8px', border: 'none', cursor: 'pointer', outline: 'none', fontSize: '13px', fontWeight: '600',
-              background: activeTab === 'pitwall' ? 'rgba(34, 211, 238, 0.08)' : 'transparent',
-              color: activeTab === 'pitwall' ? 'var(--neon-cyan)' : '#9ca3af',
-              borderLeft: activeTab === 'pitwall' ? '3px solid var(--neon-cyan)' : '3px solid transparent',
-              transition: 'all 0.15s'
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="3" width="7" height="9"></rect>
-              <rect x="14" y="3" width="7" height="5"></rect>
-              <rect x="14" y="12" width="7" height="9"></rect>
-              <rect x="3" y="16" width="7" height="5"></rect>
-            </svg>
-            Pit Wall console
-          </button>
-          
-          <button
-            onClick={() => setActiveTab('diagnostics')}
-            style={{
-              display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '10px 14px', borderRadius: '8px', border: 'none', cursor: 'pointer', outline: 'none', fontSize: '13px', fontWeight: '600',
-              background: activeTab === 'diagnostics' ? 'rgba(34, 211, 238, 0.08)' : 'transparent',
-              color: activeTab === 'diagnostics' ? 'var(--neon-cyan)' : '#9ca3af',
-              borderLeft: activeTab === 'diagnostics' ? '3px solid var(--neon-cyan)' : '3px solid transparent',
-              transition: 'all 0.15s'
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="3"></circle>
-              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-            </svg>
-            Server Status
-          </button>
-        </nav>
 
         {/* User security Profile Footer */}
         <div style={{ borderTop: '1px solid #1f2937', paddingTop: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -840,9 +1191,28 @@ const Dashboard = () => {
                         strokeLinejoin="round"
                       />
 
-                      {/* Sector markings */}
+                       {/* Sector markings */}
                       <circle cx={scaleX(trackPath[0].x)} cy={scaleY(trackPath[0].y)} r="5" fill="#f59e0b" />
                       <text x={scaleX(trackPath[0].x) + 8} y={scaleY(trackPath[0].y) - 8} fill="#f59e0b" fontSize="8" fontWeight="800">START</text>
+
+                      {/* Live Racing Field Dots (all drivers circulating) */}
+                      {drivers.map((d, index) => {
+                        if (d.driver_number === selectedDriver || (compareDriver && d.driver_number === compareDriver)) return null;
+                        const coords = getInterpolatedCoords(d.progress);
+                        if (!coords) return null;
+                        return (
+                          <circle
+                            key={d.driver_number}
+                            cx={scaleX(coords.x)}
+                            cy={scaleY(coords.y)}
+                            r="3.5"
+                            fill={`#${d.team_colour}`}
+                            stroke="#000000"
+                            strokeWidth="0.5"
+                            style={{ transition: 'cx 0.08s linear, cy 0.08s linear' }}
+                          />
+                        );
+                      })}
 
                       {/* Primary Driver Indicator Dot with Smooth CSS transitions */}
                       {activeCoords && (
@@ -929,10 +1299,10 @@ const Dashboard = () => {
                           stroke="var(--neon-cyan)"
                           strokeWidth="4"
                           strokeDasharray={2 * Math.PI * 32}
-                          strokeDashoffset={2 * Math.PI * 32 * (1 - currentTelemetry.speed / 360)}
+                          strokeDashoffset={2 * Math.PI * 32 * (1 - Math.min(currentTelemetry.speed, 360) / 360)}
                           strokeLinecap="round"
                           transform="rotate(-90 40 40)"
-                          style={{ transition: 'stroke-dashoffset 0.15s ease' }}
+                          style={{ transition: 'stroke-dashoffset 0.05s linear' }}
                         />
                       </svg>
                       <div style={{ position: 'absolute', display: 'flex', flexDirection: 'column', alignContent: 'center', alignItems: 'center' }}>
@@ -1076,117 +1446,322 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {/* GRID LAYER 3: Leaderboard (8 cols) & Pit Strategy/Weather (4 cols) */}
+            {/* GRID LAYER 3: Active Car Thermal Matrix (8 cols) & Track Weather Matrix (4 cols) */}
             <div className="dashboard-grid" style={{ marginTop: '0px' }}>
               
-              {/* Dynamic Leaderboard Table (8 columns) */}
-              <div className="pitwall-card" style={{ gridColumn: 'span 8', padding: '24px' }}>
-                <h3 style={{ color: '#f9fafb', fontSize: '15px', marginBottom: '16px' }}>Grand Prix Lap Leaderboard (Dynamic gaps)</h3>
-                <div style={{ overflowX: 'auto' }}>
-                  <table style={{ width: '100%', borderCollapse: 'collapse', color: '#9ca3af', fontSize: '12px' }}>
-                    <thead>
-                      <tr style={{ borderBottom: '1px solid #1f2937', textAlign: 'left' }}>
-                        <th style={{ padding: '8px', color: '#f9fafb', fontWeight: '800' }}>POS</th>
-                        <th style={{ padding: '8px', color: '#f9fafb', fontWeight: '800' }}>DRIVER</th>
-                        <th style={{ padding: '8px', color: '#f9fafb', fontWeight: '800' }}>TEAM</th>
-                        <th style={{ padding: '8px', color: '#f9fafb', fontWeight: '800' }}>TYRE</th>
-                        <th style={{ padding: '8px', color: '#f9fafb', fontWeight: '800' }}>AGE</th>
-                        <th style={{ padding: '8px', color: '#f9fafb', fontWeight: '800' }}>LAST LAP</th>
-                        <th style={{ padding: '8px', color: '#f9fafb', fontWeight: '800' }}>GAP</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {drivers.map(d => (
-                        <tr
-                          key={d.driver_number}
-                          onClick={() => setSelectedDriver(d.driver_number)}
-                          style={{
-                            borderBottom: '1px solid #111827',
-                            cursor: 'pointer',
-                            backgroundColor: selectedDriver === d.driver_number ? 'rgba(34, 211, 238, 0.05)' : 'transparent',
-                            color: selectedDriver === d.driver_number ? '#ffffff' : '#9ca3af',
-                            transition: 'background-color 0.15s'
-                          }}
-                          className="leaderboard-row"
-                        >
-                          <td style={{ padding: '10px 8px', fontWeight: '800' }}>{d.pos}</td>
-                          <td style={{ padding: '10px 8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <span style={{ width: '3px', height: '14px', backgroundColor: `#${d.team_colour}`, display: 'inline-block' }}></span>
-                            <span style={{ fontWeight: '700' }}>{d.name_acronym}</span>
-                          </td>
-                          <td style={{ padding: '10px 8px' }}>{d.team_name}</td>
-                          <td style={{ padding: '10px 8px' }}>{d.tyre}</td>
-                          <td style={{ padding: '10px 8px' }}>{d.tyre_age} L</td>
-                          <td style={{ padding: '10px 8px', fontFamily: 'monospace' }}>{d.last_lap}</td>
-                          <td style={{ padding: '10px 8px', fontFamily: 'monospace', color: d.interval.includes('LEADER') ? 'var(--neon-green)' : '#9ca3af' }}>{d.interval}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* Weather & Strategy feed (4 columns) */}
-              <div style={{ gridColumn: 'span 4', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {/* Active Car Thermal Telemetry Matrix (8 columns) */}
+              <div className="pitwall-card" style={{ gridColumn: 'span 8', padding: '24px 36px', display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '340px' }}>
+                <h4 style={{ color: '#f9fafb', fontSize: '15px', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: '4px', width: '100%' }}>Active Car Thermal Matrix</h4>
+                <span style={{ fontSize: '10px', color: 'var(--neon-cyan)', fontWeight: '700', letterSpacing: '0.05em', marginBottom: '24px', display: 'block', width: '100%', textTransform: 'uppercase' }}>
+                  Live Sensors: {activeDriverInfo.broadcast_name}
+                </span>
                 
-                {/* Weather card */}
-                <div className="pitwall-card" style={{ padding: '20px' }}>
-                  <h4 style={{ color: '#f9fafb', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: '12px' }}>Track Weather Matrix</h4>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
-                    <div>
-                      <span style={{ fontSize: '10px', color: '#9ca3af' }}>AIR TEMP</span>
-                      <p style={{ fontSize: '16px', color: '#f9fafb', fontWeight: '800' }}>{weather.air_temp}°C</p>
-                    </div>
-                    <div>
-                      <span style={{ fontSize: '10px', color: '#9ca3af' }}>TRACK TEMP</span>
-                      <p style={{ fontSize: '16px', color: 'var(--neon-orange)', fontWeight: '800' }}>{weather.track_temp}°C</p>
-                    </div>
-                    <div>
-                      <span style={{ fontSize: '10px', color: '#9ca3af' }}>HUMIDITY</span>
-                      <p style={{ fontSize: '14px', color: '#f9fafb', fontWeight: '700' }}>{weather.humidity}%</p>
-                    </div>
-                    <div>
-                      <span style={{ fontSize: '10px', color: '#9ca3af' }}>RAIN RISK</span>
-                      <p style={{ fontSize: '14px', color: 'var(--neon-cyan)', fontWeight: '700' }}>{weather.rainfall === 0 ? '0% (DRY)' : 'RAIN ACTIVE'}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Team Radio / Race Control Messages feed */}
-                <div className="pitwall-card" style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <h4 style={{ color: '#f9fafb', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: '10px' }}>Team Communications</h4>
+                <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between', position: 'relative', flex: 1 }}>
                   
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, maxHeight: '140px', overflowY: 'auto', marginBottom: '12px' }}>
-                    {raceControl.map((msg, i) => (
-                      <div key={i} style={{ fontSize: '10px', padding: '6px 8px', backgroundColor: '#090d16', borderRadius: '4px', borderLeft: `3px solid ${msg.includes('FIA') || msg.includes('DIRECTOR') ? 'var(--neon-red)' : 'var(--neon-cyan)'}`, color: '#e5e7eb', lineHeight: '1.4' }}>
-                        {msg}
+                  {/* Left Side: Front-Left & Rear-Left Sensors */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '35%' }}>
+                    {/* FL TIRE */}
+                    <div style={{ textAlign: 'left' }}>
+                      <span style={{ fontSize: '9px', color: '#9ca3af', fontWeight: '800' }}>FL TIRE</span>
+                      <div style={{ display: 'flex', gap: '8px', fontSize: '8px', color: '#6b7280', marginTop: '1px' }}>
+                        <span>🟧 Temp</span>
+                        <span>🟩 Press</span>
                       </div>
-                    ))}
+                      <div style={{ display: 'flex', gap: '6px', marginTop: '1px', alignItems: 'baseline' }}>
+                        <span style={{ fontSize: '14px', color: getTyreColor(flTyreTemp, false), fontWeight: '800', fontFamily: 'monospace' }}>{flTyreTemp}°C</span>
+                        <span style={{ fontSize: '11px', color: '#ffffff', fontWeight: '700', fontFamily: 'monospace' }}>{flTyrePress} bar</span>
+                      </div>
+                    </div>
+
+                    {/* FL BRAKES */}
+                    <div style={{ textAlign: 'left' }}>
+                      <span style={{ fontSize: '9px', color: '#9ca3af', fontWeight: '800' }}>FL BRAKES</span>
+                      <div style={{ fontSize: '8px', color: '#6b7280', marginTop: '1px' }}>🟧 Temp</div>
+                      <p style={{ fontSize: '14px', color: flBrakeTemp > 650 ? 'var(--neon-red)' : flBrakeTemp > 500 ? 'var(--neon-orange)' : '#ffffff', fontWeight: '800', fontFamily: 'monospace', marginTop: '1px' }}>{flBrakeTemp}°C</p>
+                    </div>
+
+                    {/* RL TIRE */}
+                    <div style={{ textAlign: 'left', marginTop: '8px' }}>
+                      <span style={{ fontSize: '9px', color: '#9ca3af', fontWeight: '800' }}>RL TIRE</span>
+                      <div style={{ display: 'flex', gap: '8px', fontSize: '8px', color: '#6b7280', marginTop: '1px' }}>
+                        <span>🟥 Temp</span>
+                        <span>🟩 Press</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: '6px', marginTop: '1px', alignItems: 'baseline' }}>
+                        <span style={{ fontSize: '14px', color: getTyreColor(rlTyreTemp, true), fontWeight: '800', fontFamily: 'monospace' }}>{rlTyreTemp}°C</span>
+                        <span style={{ fontSize: '11px', color: '#ffffff', fontWeight: '700', fontFamily: 'monospace' }}>{rlTyrePress} bar</span>
+                      </div>
+                    </div>
+
+                    {/* RL BRAKES */}
+                    <div style={{ textAlign: 'left' }}>
+                      <span style={{ fontSize: '9px', color: '#9ca3af', fontWeight: '800' }}>RL BRAKES</span>
+                      <div style={{ fontSize: '8px', color: '#6b7280', marginTop: '1px' }}>🟧 Temp</div>
+                      <p style={{ fontSize: '14px', color: rlBrakeTemp > 650 ? 'var(--neon-red)' : '#ffffff', fontWeight: '800', fontFamily: 'monospace', marginTop: '1px' }}>{rlBrakeTemp}°C</p>
+                    </div>
                   </div>
 
-                  <form onSubmit={addRaceControlMsg} style={{ display: 'flex', gap: '6px', marginTop: 'auto' }}>
-                    <input
-                      type="text"
-                      placeholder="Transmit radio patch..."
-                      value={newControlMsg}
-                      onChange={(e) => setNewControlMsg(e.target.value)}
-                      style={{
-                        flex: 1, backgroundColor: '#090d16', color: '#ffffff', border: '1px solid #1f2937', borderRadius: '6px', fontSize: '11px', padding: '6px 10px', outline: 'none'
-                      }}
-                    />
-                    <button
-                      type="submit"
-                      style={{
-                        backgroundColor: 'var(--neon-cyan)', border: 'none', color: '#000000', padding: '6px 12px', borderRadius: '6px', fontSize: '11px', fontWeight: '800', cursor: 'pointer', outline: 'none'
-                      }}
-                    >
-                      TX
-                    </button>
-                  </form>
-                </div>
+                  {/* Center: SVG Wireframe F1 Car outline */}
+                  <div style={{ display: 'flex', justifyContent: 'center', width: '30%', position: 'relative' }}>
+                    <svg width="100" height="220" viewBox="0 0 140 220" style={{ overflow: 'visible' }}>
+                      <defs>
+                        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#080c14" />
+                          <stop offset="35%" stopColor="#1e293b" />
+                          <stop offset="50%" stopColor="#334155" />
+                          <stop offset="65%" stopColor="#1e293b" />
+                          <stop offset="100%" stopColor="#080c14" />
+                        </linearGradient>
+                        <linearGradient id="rimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#64748b" />
+                          <stop offset="50%" stopColor="#1e293b" />
+                          <stop offset="100%" stopColor="#0f172a" />
+                        </linearGradient>
+                      </defs>
 
+                      {/* FL Wheel with Detailed Treads & Wheel Hub */}
+                      <g>
+                        <rect x="8" y="30" width="18" height="32" rx="4" fill={getTyreColor(flTyreTemp, false)} stroke="rgba(255,255,255,0.7)" strokeWidth="1" />
+                        <rect x="8" y="30" width="3" height="32" fill="rgba(0,0,0,0.3)" />
+                        <rect x="23" y="30" width="3" height="32" fill="rgba(0,0,0,0.3)" />
+                        <line x1="8" y1="36" x2="13" y2="39" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="13" y1="33" x2="18" y2="36" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="8" y1="44" x2="13" y2="47" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="13" y1="41" x2="18" y2="44" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="8" y1="52" x2="13" y2="55" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="13" y1="49" x2="18" y2="52" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <rect x="12" y="35" width="10" height="22" rx="2" fill="url(#rimGrad)" stroke="#475569" strokeWidth="0.8" />
+                        <circle cx="17" cy="46" r="2" fill="#f87171" stroke="#000000" strokeWidth="0.5" />
+                      </g>
+
+                      {/* FR Wheel with Detailed Treads & Wheel Hub */}
+                      <g>
+                        <rect x="114" y="30" width="18" height="32" rx="4" fill={getTyreColor(frTyreTemp, false)} stroke="rgba(255,255,255,0.7)" strokeWidth="1" />
+                        <rect x="114" y="30" width="3" height="32" fill="rgba(0,0,0,0.3)" />
+                        <rect x="129" y="30" width="3" height="32" fill="rgba(0,0,0,0.3)" />
+                        <line x1="124" y1="36" x2="129" y2="39" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="119" y1="33" x2="124" y2="36" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="124" y1="44" x2="129" y2="47" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="119" y1="41" x2="124" y2="44" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="124" y1="52" x2="129" y2="55" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="119" y1="49" x2="124" y2="52" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <rect x="118" y="35" width="10" height="22" rx="2" fill="url(#rimGrad)" stroke="#475569" strokeWidth="0.8" />
+                        <circle cx="123" cy="46" r="2" fill="#60a5fa" stroke="#000000" strokeWidth="0.5" />
+                      </g>
+
+                      {/* RL Wheel with Detailed Treads & Wheel Hub */}
+                      <g>
+                        <rect x="6" y="145" width="22" height="38" rx="5" fill={getTyreColor(rlTyreTemp, true)} stroke="rgba(255,255,255,0.7)" strokeWidth="1" />
+                        <rect x="6" y="145" width="3.5" height="38" fill="rgba(0,0,0,0.3)" />
+                        <rect x="24.5" y="145" width="3.5" height="38" fill="rgba(0,0,0,0.3)" />
+                        <line x1="6" y1="152" x2="12" y2="155" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="12" y1="148" x2="18" y2="151" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="6" y1="162" x2="12" y2="165" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="12" y1="158" x2="18" y2="161" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="6" y1="172" x2="12" y2="175" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="12" y1="168" x2="18" y2="171" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <rect x="11" y="151" width="12" height="26" rx="2" fill="url(#rimGrad)" stroke="#475569" strokeWidth="0.8" />
+                        <circle cx="17" cy="164" r="2.2" fill="#f87171" stroke="#000000" strokeWidth="0.5" />
+                      </g>
+
+                      {/* RR Wheel with Detailed Treads & Wheel Hub */}
+                      <g>
+                        <rect x="112" y="145" width="22" height="38" rx="5" fill={getTyreColor(rrTyreTemp, true)} stroke="rgba(255,255,255,0.7)" strokeWidth="1" />
+                        <rect x="112" y="145" width="3.5" height="38" fill="rgba(0,0,0,0.3)" />
+                        <rect x="130.5" y="145" width="3.5" height="38" fill="rgba(0,0,0,0.3)" />
+                        <line x1="122" y1="152" x2="128" y2="155" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="116" y1="148" x2="122" y2="151" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="122" y1="162" x2="128" y2="165" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="116" y1="158" x2="122" y2="161" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="122" y1="172" x2="128" y2="175" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <line x1="116" y1="168" x2="122" y2="171" stroke="#000000" strokeWidth="1.2" opacity="0.65" />
+                        <rect x="117" y="151" width="12" height="26" rx="2" fill="url(#rimGrad)" stroke="#475569" strokeWidth="0.8" />
+                        <circle cx="123" cy="164" r="2.2" fill="#60a5fa" stroke="#000000" strokeWidth="0.5" />
+                      </g>
+
+                      {/* Suspension Wishbones - Highly Detailed Mechanical Triangle Layout */}
+                      {/* Front Left Double Wishbones & Steering Linkage */}
+                      <g opacity="0.8">
+                        <polygon points="63,40 26,35 26,45" fill="none" stroke="rgba(34, 211, 238, 0.5)" strokeWidth="1" />
+                        <polygon points="63,52 26,47 26,53" fill="none" stroke="rgba(34, 211, 238, 0.4)" strokeWidth="1" />
+                        <line x1="63" y1="46" x2="26" y2="46" stroke="rgba(243, 244, 246, 0.5)" strokeWidth="1" />
+                      </g>
+
+                      {/* Front Right Double Wishbones & Steering Linkage */}
+                      <g opacity="0.8">
+                        <polygon points="77,40 114,35 114,45" fill="none" stroke="rgba(34, 211, 238, 0.5)" strokeWidth="1" />
+                        <polygon points="77,52 114,47 114,53" fill="none" stroke="rgba(34, 211, 238, 0.4)" strokeWidth="1" />
+                        <line x1="77" y1="46" x2="114" y2="46" stroke="rgba(243, 244, 246, 0.5)" strokeWidth="1" />
+                      </g>
+
+                      {/* Rear Left Double Wishbones */}
+                      <g opacity="0.8">
+                        <polygon points="56,150 28,155 28,168" fill="none" stroke="rgba(34, 211, 238, 0.5)" strokeWidth="1" />
+                        <line x1="56" y1="168" x2="28" y2="162" stroke="rgba(34, 211, 238, 0.4)" strokeWidth="1" />
+                      </g>
+                      
+                      {/* Rear Right Double Wishbones */}
+                      <g opacity="0.8">
+                        <polygon points="84,150 112,155 112,168" fill="none" stroke="rgba(34, 211, 238, 0.5)" strokeWidth="1" />
+                        <line x1="84" y1="168" x2="112" y2="162" stroke="rgba(34, 211, 238, 0.4)" strokeWidth="1" />
+                      </g>
+
+                      {/* Aerodynamic Front Wing Assembly - Sweeping Modern Elements */}
+                      <g>
+                        {/* Symmetrical sweeping main plane */}
+                        <path d="M 8 18 C 25 18 45 25 70 25 C 95 25 115 18 132 18 L 132 21 C 115 21 95 27 70 27 C 45 27 25 21 8 21 Z" fill="rgba(15, 23, 42, 0.95)" stroke="rgba(34, 211, 238, 0.6)" strokeWidth="1" />
+                        {/* Symmetrical sweeping upper flap plane */}
+                        <path d="M 10 14 C 25 14 45 21 70 21 C 95 21 115 14 130 14 L 130 16 C 115 16 95 23 70 23 C 45 23 25 16 10 16 Z" fill="rgba(30, 41, 59, 0.95)" stroke="rgba(34, 211, 238, 0.4)" strokeWidth="0.8" />
+                        {/* Curved Endplates */}
+                        <path d="M 6 12 C 6 12 7 24 9 26 L 11 26 C 9 24 8 12 8 12 Z" fill="var(--neon-cyan)" stroke="rgba(34, 211, 238, 0.5)" strokeWidth="0.5" />
+                        <path d="M 134 12 C 134 12 133 24 131 26 L 129 26 C 131 24 132 12 132 12 Z" fill="var(--neon-cyan)" stroke="rgba(34, 211, 238, 0.5)" strokeWidth="0.5" />
+                      </g>
+
+                      {/* Monocoque Nose Cone & Chassis Structure */}
+                      <g>
+                        <path d="M 65 24 L 75 24 L 77 46 L 79 70 L 80 82 C 80 82 78 84 70 84 C 62 84 60 82 60 82 L 61 70 L 63 46 Z" fill="url(#bodyGrad)" stroke="var(--neon-cyan)" strokeWidth="1" />
+                        <path d="M 70 24 L 70 82" stroke="rgba(34, 211, 238, 0.4)" strokeWidth="0.8" strokeDasharray="2,2" />
+                      </g>
+
+                      {/* Sidepods & Underfloor - Coke-Bottle Aerodynamics */}
+                      <g>
+                        {/* Left and Right Floor extension details with carbon stripes */}
+                        <path d="M 52 82 L 35 105 L 34 142 L 50 160" fill="none" stroke="rgba(34, 211, 238, 0.4)" strokeWidth="1.5" />
+                        <path d="M 88 82 L 105 105 L 106 142 L 90 160" fill="none" stroke="rgba(34, 211, 238, 0.4)" strokeWidth="1.5" />
+                        <line x1="34" y1="115" x2="44" y2="115" stroke="rgba(51, 65, 85, 0.5)" strokeWidth="1" />
+                        <line x1="34" y1="125" x2="44" y2="125" stroke="rgba(51, 65, 85, 0.5)" strokeWidth="1" />
+                        <line x1="34" y1="135" x2="44" y2="135" stroke="rgba(51, 65, 85, 0.5)" strokeWidth="1" />
+                        <line x1="106" y1="115" x2="96" y2="115" stroke="rgba(51, 65, 85, 0.5)" strokeWidth="1" />
+                        <line x1="106" y1="125" x2="96" y2="125" stroke="rgba(51, 65, 85, 0.5)" strokeWidth="1" />
+                        <line x1="106" y1="135" x2="96" y2="135" stroke="rgba(51, 65, 85, 0.5)" strokeWidth="1" />
+
+                        {/* Symmetrical wide sidepods with elegant sweep */}
+                        <path d="M 60 76 L 46 82 L 40 102 C 38 118 48 135 50 148 C 52 158 54 166 52 178 L 88 178 C 86 166 88 158 90 148 C 92 135 102 118 100 102 L 94 82 L 80 76 Z" fill="url(#bodyGrad)" stroke="rgba(34, 211, 238, 0.8)" strokeWidth="1.2" />
+
+                        {/* Sidepod Cooling Louvers / Gills */}
+                        <g stroke="rgba(34, 211, 238, 0.3)" strokeWidth="0.8">
+                          <line x1="44" y1="102" x2="52" y2="100" />
+                          <line x1="45" y1="106" x2="53" y2="104" />
+                          <line x1="46" y1="110" x2="54" y2="108" />
+                          <line x1="47" y1="114" x2="55" y2="112" />
+                          <line x1="48" y1="118" x2="56" y2="116" />
+
+                          <line x1="96" y1="102" x2="88" y2="100" />
+                          <line x1="95" y1="106" x2="87" y2="104" />
+                          <line x1="94" y1="110" x2="86" y2="108" />
+                          <line x1="93" y1="114" x2="85" y2="112" />
+                          <line x1="92" y1="118" x2="84" y2="116" />
+                        </g>
+
+                        {/* Left and Right Sidepod Intakes */}
+                        <rect x="46" y="80" width="14" height="6" fill="#040711" stroke="#334155" strokeWidth="0.8" />
+                        <rect x="80" y="80" width="14" height="6" fill="#040711" stroke="#334155" strokeWidth="0.8" />
+                      </g>
+
+                      {/* Cockpit Cavity, Driver Seat, Formula Steering Wheel, and Halo */}
+                      <g>
+                        <rect x="62" y="82" width="16" height="34" rx="8" fill="#040711" stroke="#1e293b" strokeWidth="1" />
+                        {/* Seat */}
+                        <path d="M 64 96 C 64 90 76 90 76 96 L 75 112 C 75 112 70 114 65 112 Z" fill="#0b0f19" stroke="#334155" strokeWidth="0.8" />
+                        {/* Detailed Steering Wheel */}
+                        <path d="M 65 88 L 75 88 L 76 92 L 73 92 L 73 90 L 67 90 L 67 92 L 64 92 Z" fill="#1e293b" stroke="#64748b" strokeWidth="0.5" />
+                        <circle cx="70" cy="89" r="0.8" fill="#10b981" />
+                        
+                        {/* Titanium Halo Loop */}
+                        <line x1="70" y1="80" x2="70" y2="92" stroke="#475569" strokeWidth="2.2" />
+                        <path d="M 62 108 C 58 92 61 88 70 88 C 79 88 82 92 78 108" fill="none" stroke="#64748b" strokeWidth="2" />
+                        <path d="M 62 108 C 58 92 61 88 70 88 C 79 88 82 92 78 108" fill="none" stroke="rgba(34, 211, 238, 0.6)" strokeWidth="0.8" />
+                      </g>
+
+                      {/* Engine Cover, Airbox & Shark Fin */}
+                      <g>
+                        <ellipse cx="70" cy="114" rx="4.5" ry="3" fill="#040711" stroke="#475569" strokeWidth="1.2" />
+                        <line x1="70" y1="117" x2="70" y2="178" stroke="var(--neon-cyan)" strokeWidth="1.2" />
+                        <path d="M 70 135 L 70 178 L 68 178 Z" fill="rgba(34, 211, 238, 0.45)" />
+                      </g>
+
+                      {/* Rear Wing Endplates, DRS Flaps & DRS Hydraulic Actuator */}
+                      <g>
+                        <path d="M 21 178 C 21 178 18 190 20 206 L 23 206 C 21 190 23 178 23 178 Z" fill="rgba(34, 211, 238, 0.8)" stroke="rgba(34, 211, 238, 0.4)" strokeWidth="0.5" />
+                        <path d="M 119 178 C 119 178 122 190 120 206 L 117 206 C 119 190 117 178 117 178 Z" fill="rgba(34, 211, 238, 0.8)" stroke="rgba(34, 211, 238, 0.4)" strokeWidth="0.5" />
+                        <rect x="23" y="190" width="94" height="6" rx="1" fill="rgba(15, 23, 42, 0.95)" stroke="rgba(34, 211, 238, 0.5)" strokeWidth="0.8" />
+                        <rect x="23" y="197" width="94" height="8" rx="1" fill="rgba(30, 41, 59, 0.95)" stroke="rgba(34, 211, 238, 0.5)" strokeWidth="0.8" />
+                        <rect x="67" y="193" width="6" height="5" fill="var(--neon-cyan)" />
+                      </g>
+                    </svg>
+                  </div>
+
+                  {/* Right Side: Front-Right & Rear-Right Sensors */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '35%', alignItems: 'flex-end', textAlign: 'right' }}>
+                    {/* FR TIRE */}
+                    <div>
+                      <span style={{ fontSize: '9px', color: '#9ca3af', fontWeight: '800' }}>FR TIRE</span>
+                      <div style={{ display: 'flex', gap: '8px', fontSize: '8px', color: '#6b7280', marginTop: '1px', justifyContent: 'flex-end' }}>
+                        <span>🟧 Temp</span>
+                        <span>🟩 Press</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: '6px', marginTop: '1px', alignItems: 'baseline', justifyContent: 'flex-end' }}>
+                        <span style={{ fontSize: '14px', color: getTyreColor(frTyreTemp, false), fontWeight: '800', fontFamily: 'monospace' }}>{frTyreTemp}°C</span>
+                        <span style={{ fontSize: '11px', color: '#ffffff', fontWeight: '700', fontFamily: 'monospace' }}>{frTyrePress} bar</span>
+                      </div>
+                    </div>
+
+                    {/* FR BRAKES */}
+                    <div>
+                      <span style={{ fontSize: '9px', color: '#9ca3af', fontWeight: '800' }}>FR BRAKES</span>
+                      <div style={{ fontSize: '8px', color: '#6b7280', marginTop: '1px' }}>🟧 Temp</div>
+                      <p style={{ fontSize: '14px', color: frBrakeTemp > 650 ? 'var(--neon-red)' : frBrakeTemp > 500 ? 'var(--neon-orange)' : '#ffffff', fontWeight: '800', fontFamily: 'monospace', marginTop: '1px' }}>{frBrakeTemp}°C</p>
+                    </div>
+
+                    {/* RR TIRE */}
+                    <div style={{ marginTop: '8px' }}>
+                      <span style={{ fontSize: '9px', color: '#9ca3af', fontWeight: '800' }}>RR TIRE</span>
+                      <div style={{ display: 'flex', gap: '8px', fontSize: '8px', color: '#6b7280', marginTop: '1px', justifyContent: 'flex-end' }}>
+                        <span>🟥 Temp</span>
+                        <span>🟩 Press</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: '6px', marginTop: '1px', alignItems: 'baseline', justifyContent: 'flex-end' }}>
+                        <span style={{ fontSize: '14px', color: getTyreColor(rrTyreTemp, true), fontWeight: '800', fontFamily: 'monospace' }}>{rrTyreTemp}°C</span>
+                        <span style={{ fontSize: '11px', color: '#ffffff', fontWeight: '700', fontFamily: 'monospace' }}>{rrTyrePress} bar</span>
+                      </div>
+                    </div>
+
+                    {/* RR BRAKES */}
+                    <div>
+                      <span style={{ fontSize: '9px', color: '#9ca3af', fontWeight: '800' }}>RR BRAKES</span>
+                      <div style={{ fontSize: '8px', color: '#6b7280', marginTop: '1px' }}>🟧 Temp</div>
+                      <p style={{ fontSize: '14px', color: rrBrakeTemp > 650 ? 'var(--neon-red)' : '#ffffff', fontWeight: '800', fontFamily: 'monospace', marginTop: '1px' }}>{rrBrakeTemp}°C</p>
+                    </div>
+                  </div>
+
+                </div>
               </div>
+
+              {/* Track Weather Matrix (4 columns) */}
+              <div className="pitwall-card" style={{ gridColumn: 'span 4', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <h4 style={{ color: '#f9fafb', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: '16px' }}>Track Weather Matrix</h4>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
+                  <div>
+                    <span style={{ fontSize: '10px', color: '#9ca3af' }}>AIR TEMP</span>
+                    <p style={{ fontSize: '18px', color: '#f9fafb', fontWeight: '800' }}>{weather.air_temp}°C</p>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '10px', color: '#9ca3af' }}>TRACK TEMP</span>
+                    <p style={{ fontSize: '18px', color: 'var(--neon-orange)', fontWeight: '800' }}>{weather.track_temp}°C</p>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '10px', color: '#9ca3af' }}>HUMIDITY</span>
+                    <p style={{ fontSize: '16px', color: '#f9fafb', fontWeight: '700' }}>{weather.humidity}%</p>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '10px', color: '#9ca3af' }}>RAIN RISK</span>
+                    <p style={{ fontSize: '16px', color: 'var(--neon-cyan)', fontWeight: '700' }}>{weather.rainfall === 0 ? '0% (DRY)' : 'RAIN ACTIVE'}</p>
+                  </div>
+                </div>
+              </div>
+
             </div>
+
 
           </div>
         ) : (

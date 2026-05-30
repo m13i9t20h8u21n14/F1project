@@ -435,3 +435,22 @@ a:hover {
   transition: width 0.15s ease;
 }
 
+/* Sidebar F1 Leaderboard Styles */
+.leaderboard-sidebar-row:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.sidebar-leaderboard-list::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-leaderboard-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-leaderboard-list::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 4px;
+}
+.sidebar-leaderboard-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}
+
