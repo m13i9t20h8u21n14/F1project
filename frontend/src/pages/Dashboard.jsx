@@ -222,6 +222,14 @@ const Dashboard = () => {
   const activeCoords = activeDriverObj ? getInterpolatedCoords(activeDriverObj.progress) : (trackPath[0] || { x: 0, y: 0 });
   const compareCoords = compareDriverObj ? getInterpolatedCoords(compareDriverObj.progress) : null;
 
+  // Active driver telemetry HUD state
+  const currentTelemetry = activeDriverObj
+    ? {
+        ...getDynamicTelemetry(Math.floor(activeDriverObj.progress) % trackPath.length, activeDriverObj.driver_number),
+        speed: activeDriverObj.speed || 250
+      }
+    : { speed: 0, rpm: 0, throttle: 0, brake: 0, gear: 'N', drs: 0 };
+
   // ==========================================
   // FETCH 1: DYNAMIC MEETING LIST ON YEAR SELECTION
   // ==========================================
