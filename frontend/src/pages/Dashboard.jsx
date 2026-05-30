@@ -3,35 +3,142 @@ import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 
 // ==========================================
-// HIGH-FIDELITY SINGLE-LAP CIRCUIT MAPS
+// HIGH-FIDELITY OFFLINE CIRCUITS PATH DATABASE
 // ==========================================
-const TRACK_MAPS = {
-  '9472': [
-    {"x":-408,"y":723},{"x":-382,"y":1237},{"x":-346,"y":2034},{"x":-323,"y":2590},{"x":-290,"y":3303},{"x":-271,"y":3792},{"x":-245,"y":4511},{"x":-227,"y":5035},{"x":-209,"y":5588},{"x":-187,"y":6291},{"x":-172,"y":6859},{"x":-155,"y":7403},{"x":-139,"y":7768},{"x":-120,"y":8016},{"x":-93,"y":8153},{"x":-22,"y":8280},{"x":100,"y":8346},{"x":245,"y":8302},{"x":331,"y":8233},{"x":446,"y":8115},{"x":614,"y":7965},{"x":981,"y":7863},{"x":1346,"y":7918},{"x":1632,"y":8002},{"x":2038,"y":8071},{"x":2612,"y":8026},{"x":3224,"y":7905},{"x":3741,"y":7800},{"x":4524,"y":7642},{"x":5173,"y":7514},{"x":5727,"y":7409},{"x":6186,"y":7325},{"x":6567,"y":7256},{"x":7050,"y":7161},{"x":7355,"y":7019},{"x":7485,"y":6833},{"x":7489,"y":6626},{"x":7428,"y":6435},{"x":7273,"y":6228},{"x":7128,"y":6101},{"x":6866,"y":5914},{"x":6581,"y":5707},{"x":6371,"y":5536},{"x":5972,"y":5090},{"x":5619,"y":4544},{"x":5285,"y":4255},{"x":5038,"y":4190},{"x":4523,"y":4188},{"x":4145,"y":4117},{"x":3883,"y":3990},{"x":3580,"y":3712},{"x":3324,"y":3334},{"x":3131,"y":3007},{"x":2926,"y":2714},{"x":2771,"y":2542},{"x":2590,"y":2460},{"x":2413,"y":2523},{"x":2349,"y":2630},{"x":2298,"y":2796},{"x":2292,"y":3009},{"x":2338,"y":3339},{"x":2410,"y":3675},{"x":2513,"y":4149},{"x":2614,"y":4586},{"x":2708,"y":5090},{"x":2755,"y":5619},{"x":2667,"y":6067},{"x":2508,"y":6356},{"x":2318,"y":6539},{"x":2167,"y":6608},{"x":2012,"y":6585},{"x":1924,"y":6474},{"x":1881,"y":6345},{"x":1852,"y":6198},{"x":1828,"y":6014},{"x":1800,"y":5748},{"x":1780,"y":5510},{"x":1749,"y":5010},{"x":1724,"y":4577},{"x":1704,"y":4153},{"x":1668,"y":3428},{"x":1647,"y":2945},{"x":1626,"y":2461},{"x":1599,"y":1905},{"x":1566,"y":1243},{"x":1539,"y":749},{"x":1518,"y":122},{"x":1569,"y":-227},{"x":1701,"y":-476},{"x":1935,"y":-614},{"x":2116,"y":-663},{"x":2387,"y":-650},{"x":2830,"y":-447},{"x":3149,"y":-112},{"x":3357,"y":292},{"x":3560,"y":777},{"x":3848,"y":1183},{"x":4430,"y":1539},{"x":4870,"y":1615},{"x":5293,"y":1535},{"x":5666,"y":1363},{"x":6221,"y":1091},{"x":6531,"y":852},{"x":6664,"y":491},{"x":6612,"y":208},{"x":6429,"y":-33},{"x":6203,"y":-203},{"x":5824,"y":-410},{"x":5438,"y":-611},{"x":4999,"y":-844},{"x":4572,"y":-1075},{"x":4150,"y":-1308},{"x":3802,"y":-1502},{"x":3411,"y":-1720},{"x":2906,"y":-2001},{"x":2250,"y":-2366},{"x":1836,"y":-2599},{"x":1199,"y":-2962},{"x":791,"y":-3194},{"x":447,"y":-3383},{"x":94,"y":-3495},{"x":-141,"y":-3474},{"x":-322,"y":-3326},{"x":-487,"y":-3044},{"x":-556,"y":-2784},{"x":-577,"y":-2393},{"x":-564,"y":-2093},{"x":-539,"y":-1695},{"x":-511,"y":-1185},{"x":-476,"y":-559},{"x":-454,"y":-143},{"x":-404,"y":796},{"x":-362,"y":1665}
-  ],
-  '9480': [
-    {"x":-1204,"y":-34},{"x":-1319,"y":294},{"x":-1583,"y":1012},{"x":-1783,"y":1558},{"x":-2043,"y":2266},{"x":-2234,"y":2834},{"x":-2349,"y":3266},{"x":-2524,"y":3905},{"x":-2703,"y":4489},{"x":-2831,"y":4701},{"x":-3076,"y":4779},{"x":-3257,"y":4747},{"x":-3456,"y":4823},{"x":-3513,"y":4974},{"x":-3504,"y":5186},{"x":-3466,"y":5437},{"x":-3404,"y":5724},{"x":-3335,"y":6183},{"x":-3357,"y":6662},{"x":-3400,"y":7007},{"x":-3457,"y":7440},{"x":-3544,"y":8112},{"x":-3610,"y":8645},{"x":-3660,"y":9088},{"x":-3855,"y":9272},{"x":-4125,"y":9395},{"x":-4363,"y":9614},{"x":-4548,"y":9991},{"x":-4601,"y":10420},{"x":-4573,"y":10678},{"x":-4295,"y":11287},{"x":-4231,"y":11686},{"x":-4347,"y":12290},{"x":-4569,"y":12684},{"x":-4927,"y":12948},{"x":-5039,"y":13430},{"x":-5041,"y":13723},{"x":-4981,"y":14183},{"x":-4845,"y":14460},{"x":-4628,"y":14664},{"x":-4299,"y":14855},{"x":-4027,"y":15118},{"x":-3912,"y":15487},{"x":-3807,"y":15998},{"x":-3686,"y":16416},{"x":-3576,"y":16893},{"x":-3518,"y":17372},{"x":-3467,"y":18025},{"x":-3463,"y":18620},{"x":-3505,"y":19571},{"x":-3557,"y":20500},{"x":-3627,"y":20987},{"x":-3708,"y":21327},{"x":-3880,"y":21624},{"x":-4274,"y":21796},{"x":-4471,"y":21731},{"x":-4711,"y":21462},{"x":-4793,"y":21168},{"x":-4804,"y":20850},{"x":-4756,"y":20488},{"x":-4543,"y":20019},{"x":-4321,"y":19645},{"x":-4169,"y":19215},{"x":-4102,"y":18641},{"x":-4148,"y":17990},{"x":-4333,"y":17414},{"x":-4670,"y":16579},{"x":-4746,"y":16168},{"x":-4874,"y":15805},{"x":-5223,"y":15623},{"x":-5727,"y":15127},{"x":-5793,"y":14543},{"x":-5776,"y":13898},{"x":-5678,"y":13353},{"x":-5451,"y":12731},{"x":-5246,"y":12239},{"x":-5111,"y":11821},{"x":-4998,"y":11194},{"x":-4967,"y":10560},{"x":-4919,"y":10042},{"x":-4796,"y":9469},{"x":-4433,"y":8691},{"x":-4078,"y":8011},{"x":-3900,"y":7377},{"x":-3816,"y":6754},{"x":-3801,"y":6266},{"x":-3856,"y":5567},{"x":-3934,"y":5020},{"x":-3909,"y":4729},{"x":-3354,"y":4186},{"x":-3121,"y":3720},{"x":-3080,"y":3338},{"x":-3101,"y":2855},{"x":-3224,"y":2428},{"x":-3420,"y":2016},{"x":-3697,"y":1464},{"x":-3904,"y":977},{"x":-4065,"y":243},{"x":-4028,"y":-674},{"x":-3869,"y":-1401},{"x":-3629,"y":-2290},{"x":-3265,"y":-3095},{"x":-2674,"y":-3844},{"x":-2164,"y":-4327},{"x":-1658,"y":-4766},{"x":-1109,"y":-5180},{"x":-807,"y":-5405},{"x":-394,"y":-5640},{"x":-210,"y":-5607},{"x":-61,"y":-5488},{"x":22,"y":-5276},{"x":-3,"y":-5001},{"x":-54,"y":-4772},{"x":-122,"y":-4464},{"x":-247,"y":-3843},{"x":-343,"y":-3412},{"x":-474,"y":-2827},{"x":-592,"y":-2303},{"x":-725,"y":-1689},{"x":-888,"y":-1027},{"x":-1054,"y":-487},{"x":-1279,"y":182}
-  ],
-  '9488': [
-    {"x":-891,"y":-1622},{"x":-1315,"y":-1220},{"x":-1925,"y":-638},{"x":-2402,"y":-186},{"x":-2873,"y":261},{"x":-3181,"y":551},{"x":-3445,"y":816},{"x":-3612,"y":1052},{"x":-3664,"y":1383},{"x":-3605,"y":1658},{"x":-3554,"y":2082},{"x":-3700,"y":2610},{"x":-4006,"y":3000},{"x":-4312,"y":3269},{"x":-4691,"y":3612},{"x":-5071,"y":3986},{"x":-5397,"y":4330},{"x":-5830,"y":4828},{"x":-6066,"y":5122},{"x":-6867,"y":6261},{"x":-7188,"y":6824},{"x":-7208,"y":7018},{"x":-7160,"y":7178},{"x":-6998,"y":7296},{"x":-6789,"y":7335},{"x":-6515,"y":7366},{"x":-6295,"y":7402},{"x":-6028,"y":7529},{"x":-5854,"y":7768},{"x":-5811,"y":8079},{"x":-5849,"y":8410},{"x":-5943,"y":9045},{"x":-5906,"y":9559},{"x":-5733,"y":9929},{"x":-5390,"y":10256},{"x":-4914,"y":10598},{"x":-4710,"y":10722},{"x":-3854,"y":11126},{"x":-3206,"y":11414},{"x":-2727,"y":11673},{"x":-2365,"y":11848},{"x":-1987,"y":11755},{"x":-1548,"y":11474},{"x":-1152,"y":11365},{"x":-816,"y":11299},{"x":-277,"y":11151},{"x":189,"y":10893},{"x":462,"y":10622},{"x":727,"y":10242},{"x":921,"y":9801},{"x":1045,"y":9348},{"x":1155,"y":8733},{"x":1131,"y":7833},{"x":991,"y":7139},{"x":780,"y":6532},{"x":618,"y":6062},{"x":334,"y":5366},{"x":261,"y":4630},{"x":319,"y":4020},{"x":506,"y":3307},{"x":772,"y":2731},{"x":1080,"y":2247},{"x":1555,"y":1736},{"x":2045,"y":1302},{"x":2536,"y":934},{"x":2870,"y":801},{"x":3184,"y":814},{"x":3704,"y":870},{"x":4252,"y":747},{"x":4569,"y":497},{"x":5146,"y":12},{"x":5707,"y":-467},{"x":6216,"y":-1023},{"x":6452,"y":-1406},{"x":6667,"y":-1884},{"x":6819,"y":-2300},{"x":7147,"y":-3300},{"x":7329,"y":-3865},{"x":7414,"y":-4189},{"x":7464,"y":-4460},{"x":7497,"y":-4650},{"x":7448,"y":-4943},{"x":7139,"y":-5094},{"x":6813,"y":-5186},{"x":6455,"y":-5275},{"x":6084,"y":-5367},{"x":5655,"y":-5478},{"x":5324,"y":-5555},{"x":4886,"y":-5482},{"x":4538,"y":-5151},{"x":4333,"y":-4809},{"x":4145,"y":-4423},{"x":3958,"y":-4032},{"x":3860,"y":-3877},{"x":3750,"y":-3728},{"x":3533,"y":-3631},{"x":3328,"y":-3717},{"x":3143,"y":-3961},{"x":2678,"y":-4408},{"x":2355,"y":-4459},{"x":1975,"y":-4341},{"x":1735,"y":-4166},{"x":1396,"y":-3848},{"x":1018,"y":-3477},{"x":530,"y":-2999},{"x":27,"y":-2506},{"x":-307,"y":-2179},{"x":-637,"y":-1864}
-  ],
-  'latest': [
-    {"x":-408,"y":723},{"x":-382,"y":1237},{"x":-346,"y":2034},{"x":-323,"y":2590},{"x":-290,"y":3303},{"x":-271,"y":3792},{"x":-245,"y":4511},{"x":-227,"y":5035},{"x":-209,"y":5588},{"x":-187,"y":6291},{"x":-172,"y":6859},{"x":-155,"y":7403},{"x":-139,"y":7768},{"x":-120,"y":8016},{"x":-93,"y":8153},{"x":-22,"y":8280},{"x":100,"y":8346},{"x":245,"y":8302},{"x":331,"y":8233},{"x":446,"y":8115},{"x":614,"y":7965},{"x":981,"y":7863},{"x":1346,"y":7918},{"x":1632,"y":8002},{"x":2038,"y":8071},{"x":2612,"y":8026},{"x":3224,"y":7905},{"x":3741,"y":7800},{"x":4524,"y":7642},{"x":5173,"y":7514},{"x":5727,"y":7409},{"x":6186,"y":7325},{"x":6567,"y":7256},{"x":7050,"y":7161},{"x":7355,"y":7019},{"x":7485,"y":6833},{"x":7489,"y":6626},{"x":7428,"y":6435},{"x":7273,"y":6228},{"x":7128,"y":6101},{"x":6866,"y":5914},{"x":6581,"y":5707},{"x":6371,"y":5536},{"x":5972,"y":5090},{"x":5619,"y":4544},{"x":5285,"y":4255},{"x":5038,"y":4190},{"x":4523,"y":4188},{"x":4145,"y":4117},{"x":3883,"y":3990},{"x":3580,"y":3712},{"x":3324,"y":3334},{"x":3131,"y":3007},{"x":2926,"y":2714},{"x":2771,"y":2542},{"x":2590,"y":2460},{"x":2413,"y":2523},{"x":2349,"y":2630},{"x":2298,"y":2796},{"x":2292,"y":3009},{"x":2338,"y":3339},{"x":2410,"y":3675},{"x":2513,"y":4149},{"x":2614,"y":4586},{"x":2708,"y":5090},{"x":2755,"y":5619},{"x":2667,"y":6067},{"x":2508,"y":6356},{"x":2318,"y":6539},{"x":2167,"y":6608},{"x":2012,"y":6585},{"x":1924,"y":6474},{"x":1881,"y":6345},{"x":1852,"y":6198},{"x":1828,"y":6014},{"x":1800,"y":5748},{"x":1780,"y":5510},{"x":1749,"y":5010},{"x":1724,"y":4577},{"x":1704,"y":4153},{"x":1668,"y":3428},{"x":1647,"y":2945},{"x":1626,"y":2461},{"x":1599,"y":1905},{"x":1566,"y":1243},{"x":1539,"y":749},{"x":1518,"y":122},{"x":1569,"y":-227},{"x":1701,"y":-476},{"x":1935,"y":-614},{"x":2116,"y":-663},{"x":2387,"y":-650},{"x":2830,"y":-447},{"x":3149,"y":-112},{"x":3357,"y":292},{"x":3560,"y":777},{"x":3848,"y":1183},{"x":4430,"y":1539},{"x":4870,"y":1615},{"x":5293,"y":1535},{"x":5666,"y":1363},{"x":6221,"y":1091},{"x":6531,"y":852},{"x":6664,"y":491},{"x":6612,"y":208},{"x":6429,"y":-33},{"x":6203,"y":-203},{"x":5824,"y":-410},{"x":5438,"y":-611},{"x":4999,"y":-844},{"x":4572,"y":-1075},{"x":4150,"y":-1308},{"x":3802,"y":-1502},{"x":3411,"y":-1720},{"x":2906,"y":-2001},{"x":2250,"y":-2366},{"x":1836,"y":-2599},{"x":1199,"y":-2962},{"x":791,"y":-3194},{"x":447,"y":-3383},{"x":94,"y":-3495},{"x":-141,"y":-3474},{"x":-322,"y":-3326},{"x":-487,"y":-3044},{"x":-556,"y":-2784},{"x":-577,"y":-2393},{"x":-564,"y":-2093},{"x":-539,"y":-1695},{"x":-511,"y":-1185},{"x":-476,"y":-559},{"x":-454,"y":-143},{"x":-404,"y":796},{"x":-362,"y":1665}
-  ]
+const SAKHIR_PATH = [
+  {"x":-408,"y":723},{"x":-382,"y":1237},{"x":-346,"y":2034},{"x":-323,"y":2590},{"x":-290,"y":3303},{"x":-271,"y":3792},{"x":-245,"y":4511},{"x":-227,"y":5035},{"x":-209,"y":5588},{"x":-187,"y":6291},{"x":-172,"y":6859},{"x":-155,"y":7403},{"x":-139,"y":7768},{"x":-120,"y":8016},{"x":-93,"y":8153},{"x":-22,"y":8280},{"x":100,"y":8346},{"x":245,"y":8302},{"x":331,"y":8233},{"x":446,"y":8115},{"x":614,"y":7965},{"x":981,"y":7863},{"x":1346,"y":7918},{"x":1632,"y":8002},{"x":2038,"y":8071},{"x":2612,"y":8026},{"x":3224,"y":7905},{"x":3741,"y":7800},{"x":4524,"y":7642},{"x":5173,"y":7514},{"x":5727,"y":7409},{"x":6186,"y":7325},{"x":6567,"y":7256},{"x":7050,"y":7161},{"x":7355,"y":7019},{"x":7485,"y":6833},{"x":7489,"y":6626},{"x":7428,"y":6435},{"x":7273,"y":6228},{"x":7128,"y":6101},{"x":6866,"y":5914},{"x":6581,"y":5707},{"x":6371,"y":5536},{"x":5972,"y":5090},{"x":5619,"y":4544},{"x":5285,"y":4255},{"x":5038,"y":4190},{"x":4523,"y":4188},{"x":4145,"y":4117},{"x":3883,"y":3990},{"x":3580,"y":3712},{"x":3324,"y":3334},{"x":3131,"y":3007},{"x":2926,"y":2714},{"x":2771,"y":2542},{"x":2590,"y":2460},{"x":2413,"y":2523},{"x":2349,"y":2630},{"x":2298,"y":2796},{"x":2292,"y":3009},{"x":2338,"y":3339},{"x":2410,"y":3675},{"x":2513,"y":4149},{"x":2614,"y":4586},{"x":2708,"y":5090},{"x":2755,"y":5619},{"x":2667,"y":6067},{"x":2508,"y":6356},{"x":2318,"y":6539},{"x":2167,"y":6608},{"x":2012,"y":6585},{"x":1924,"y":6474},{"x":1881,"y":6345},{"x":1852,"y":6198},{"x":1828,"y":6014},{"x":1800,"y":5748},{"x":1780,"y":5510},{"x":1749,"y":5010},{"x":1724,"y":4577},{"x":1704,"y":4153},{"x":1668,"y":3428},{"x":1647,"y":2945},{"x":1626,"y":2461},{"x":1599,"y":1905},{"x":1566,"y":1243},{"x":1539,"y":749},{"x":1518,"y":122},{"x":1569,"y":-227},{"x":1701,"y":-476},{"x":1935,"y":-614},{"x":2116,"y":-663},{"x":2387,"y":-650},{"x":2830,"y":-447},{"x":3149,"y":-112},{"x":3357,"y":292},{"x":3560,"y":777},{"x":3848,"y":1183},{"x":4430,"y":1539},{"x":4870,"y":1615},{"x":5293,"y":1535},{"x":5666,"y":1363},{"x":6221,"y":1091},{"x":6531,"y":852},{"x":6664,"y":491},{"x":6612,"y":208},{"x":6429,"y":-33},{"x":6203,"y":-203},{"x":5824,"y":-410},{"x":5438,"y":-611},{"x":4999,"y":-844},{"x":4572,"y":-1075},{"x":4150,"y":-1308},{"x":3802,"y":-1502},{"x":3411,"y":-1720},{"x":2906,"y":-2001},{"x":2250,"y":-2366},{"x":1836,"y":-2599},{"x":1199,"y":-2962},{"x":791,"y":-3194},{"x":447,"y":-3383},{"x":94,"y":-3495},{"x":-141,"y":-3474},{"x":-322,"y":-3326},{"x":-487,"y":-3044},{"x":-556,"y":-2784},{"x":-577,"y":-2393},{"x":-564,"y":-2093},{"x":-539,"y":-1695},{"x":-511,"y":-1185},{"x":-476,"y":-559},{"x":-454,"y":-143},{"x":-404,"y":796},{"x":-362,"y":1665}
+];
+
+const MONACO_PATH = [
+  {x: 150, y: 80}, {x: 220, y: 80}, {x: 270, y: 70}, {x: 290, y: 90},
+  {x: 270, y: 130}, {x: 240, y: 160}, {x: 210, y: 200}, {x: 190, y: 230},
+  {x: 170, y: 260}, {x: 140, y: 270}, {x: 120, y: 250}, {x: 100, y: 220},
+  {x: 80, y: 200}, {x: 50, y: 190}, {x: 30, y: 210}, {x: 40, y: 230},
+  {x: 60, y: 250}, {x: 80, y: 265}, {x: 105, y: 255}, {x: 140, y: 225},
+  {x: 190, y: 185}, {x: 230, y: 145}, {x: 275, y: 100}, {x: 300, y: 65},
+  {x: 285, y: 40}, {x: 260, y: 35}, {x: 220, y: 45}, {x: 180, y: 55},
+  {x: 140, y: 65}, {x: 110, y: 50}, {x: 80, y: 35}, {x: 60, y: 50},
+  {x: 50, y: 75}, {x: 65, y: 95}, {x: 85, y: 105}, {x: 100, y: 92}
+];
+
+const SILVERSTONE_PATH = [
+  {x: 100, y: 150}, {x: 200, y: 150}, {x: 300, y: 150}, 
+  {x: 340, y: 170}, {x: 360, y: 210}, {x: 330, y: 240}, 
+  {x: 280, y: 230}, {x: 240, y: 250}, {x: 220, y: 290}, 
+  {x: 250, y: 350}, {x: 300, y: 400}, {x: 350, y: 450}, 
+  {x: 380, y: 470}, {x: 370, y: 500}, {x: 320, y: 480}, 
+  {x: 270, y: 450}, {x: 240, y: 470}, {x: 220, y: 510}, 
+  {x: 240, y: 560}, {x: 280, y: 580}, {x: 330, y: 580}, 
+  {x: 390, y: 560}, {x: 420, y: 530},                   
+  {x: 440, y: 490}, {x: 410, y: 460}, {x: 440, y: 430}, 
+  {x: 470, y: 400}, {x: 500, y: 350}, {x: 530, y: 290}, 
+  {x: 560, y: 220}, {x: 580, y: 160},                   
+  {x: 560, y: 110}, {x: 520, y: 90},  {x: 460, y: 120}, 
+  {x: 380, y: 130}, {x: 250, y: 140}
+];
+
+const MONZA_PATH = [
+  {x: 100, y: 100}, {x: 200, y: 100}, {x: 300, y: 100}, 
+  {x: 350, y: 90}, {x: 370, y: 120}, {x: 340, y: 140},  
+  {x: 300, y: 160}, {x: 260, y: 200}, {x: 240, y: 260}, 
+  {x: 240, y: 320}, {x: 250, y: 360}, {x: 230, y: 390}, 
+  {x: 190, y: 380}, {x: 160, y: 400}, {x: 150, y: 430}, 
+  {x: 160, y: 470}, {x: 190, y: 480}, {x: 210, y: 510}, 
+  {x: 250, y: 490}, {x: 300, y: 450}, {x: 350, y: 400}, 
+  {x: 380, y: 370}, {x: 400, y: 390}, {x: 380, y: 410}, 
+  {x: 330, y: 420}, {x: 260, y: 430}, {x: 180, y: 440}, 
+  {x: 100, y: 440}, {x: 60, y: 390},  {x: 50, y: 310},  
+  {x: 60, y: 220},  {x: 80, y: 140}
+];
+
+const SPA_PATH = [
+  {x: 100, y: 100}, {x: 120, y: 130}, {x: 110, y: 160}, 
+  {x: 80, y: 180},  {x: 90, y: 220},  {x: 120, y: 250}, 
+  {x: 150, y: 260}, {x: 190, y: 240},                   
+  {x: 240, y: 220}, {x: 300, y: 200}, {x: 360, y: 180}, 
+  {x: 400, y: 170}, {x: 420, y: 190}, {x: 390, y: 210}, 
+  {x: 350, y: 230}, {x: 330, y: 260}, {x: 340, y: 290}, 
+  {x: 370, y: 310}, {x: 400, y: 320}, {x: 410, y: 350}, 
+  {x: 380, y: 390}, {x: 330, y: 410}, {x: 270, y: 400}, 
+  {x: 220, y: 380}, {x: 190, y: 390}, {x: 170, y: 420}, 
+  {x: 180, y: 460}, {x: 210, y: 470}, {x: 240, y: 490}, 
+  {x: 280, y: 470}, {x: 320, y: 430}, {x: 360, y: 420}, 
+  {x: 400, y: 430}, {x: 420, y: 400}, {x: 430, y: 340}, 
+  {x: 410, y: 280}, {x: 380, y: 240},                   
+  {x: 330, y: 250}, {x: 250, y: 220}, {x: 180, y: 160},
+  {x: 120, y: 110}
+];
+
+const getOfflineTrackPath = (meetingName = '', location = '') => {
+  const name = `${meetingName || ''} ${location || ''}`.toLowerCase();
+  if (name.includes('monaco')) return MONACO_PATH;
+  if (name.includes('silverstone') || name.includes('british') || name.includes('great britain')) return SILVERSTONE_PATH;
+  if (name.includes('monza') || name.includes('italy') || name.includes('italian')) return MONZA_PATH;
+  if (name.includes('spa') || name.includes('belgian') || name.includes('belgium')) return SPA_PATH;
+  return SAKHIR_PATH;
 };
 
 // ==========================================
-// FALLBACK/MOCK DRIVERS LIST
+// OFFLINE SEASON CALENDARS (2021 & 2022)
 // ==========================================
+const MOCK_MEETINGS_2022 = [
+  { meeting_key: '202201', meeting_name: 'Bahrain Grand Prix', location: 'Sakhir' },
+  { meeting_key: '202202', meeting_name: 'Saudi Arabian Grand Prix', location: 'Jeddah' },
+  { meeting_key: '202203', meeting_name: 'Australian Grand Prix', location: 'Melbourne' },
+  { meeting_key: '202204', meeting_name: 'Emilia Romagna Grand Prix', location: 'Imola' },
+  { meeting_key: '202205', meeting_name: 'Miami Grand Prix', location: 'Miami' },
+  { meeting_key: '202206', meeting_name: 'Spanish Grand Prix', location: 'Barcelona' },
+  { meeting_key: '202207', meeting_name: 'Monaco Grand Prix', location: 'Monaco' },
+  { meeting_key: '202208', meeting_name: 'Canadian Grand Prix', location: 'Montreal' },
+  { meeting_key: '202209', meeting_name: 'British Grand Prix', location: 'Silverstone' },
+  { meeting_key: '202210', meeting_name: 'Austrian Grand Prix', location: 'Spielberg' },
+  { meeting_key: '202211', meeting_name: 'Belgian Grand Prix', location: 'Spa-Francorchamps' },
+  { meeting_key: '202212', meeting_name: 'Dutch Grand Prix', location: 'Zandvoort' },
+  { meeting_key: '202213', meeting_name: 'Italian Grand Prix', location: 'Monza' },
+  { meeting_key: '202214', meeting_name: 'Singapore Grand Prix', location: 'Marina Bay' },
+  { meeting_key: '202215', meeting_name: 'Japanese Grand Prix', location: 'Suzuka' },
+  { meeting_key: '202216', meeting_name: 'United States Grand Prix', location: 'Austin' },
+  { meeting_key: '202217', meeting_name: 'Mexico City Grand Prix', location: 'Mexico City' },
+  { meeting_key: '202218', meeting_name: 'Sao Paulo Grand Prix', location: 'Interlagos' },
+  { meeting_key: '202219', meeting_name: 'Abu Dhabi Grand Prix', location: 'Yas Marina' }
+];
+
+const MOCK_MEETINGS_2021 = [
+  { meeting_key: '202101', meeting_name: 'Bahrain Grand Prix', location: 'Sakhir' },
+  { meeting_key: '202102', meeting_name: 'Emilia Romagna Grand Prix', location: 'Imola' },
+  { meeting_key: '202103', meeting_name: 'Portuguese Grand Prix', location: 'Portimão' },
+  { meeting_key: '202104', meeting_name: 'Spanish Grand Prix', location: 'Barcelona' },
+  { meeting_key: '202105', meeting_name: 'Monaco Grand Prix', location: 'Monaco' },
+  { meeting_key: '202106', meeting_name: 'Azerbaijan Grand Prix', location: 'Baku' },
+  { meeting_key: '202107', meeting_name: 'French Grand Prix', location: 'Paul Ricard' },
+  { meeting_key: '202108', meeting_name: 'Styrian Grand Prix', location: 'Spielberg' },
+  { meeting_key: '202109', meeting_name: 'Austrian Grand Prix', location: 'Spielberg' },
+  { meeting_key: '202110', meeting_name: 'British Grand Prix', location: 'Silverstone' },
+  { meeting_key: '202111', meeting_name: 'Hungarian Grand Prix', location: 'Budapest' },
+  { meeting_key: '202112', meeting_name: 'Belgian Grand Prix', location: 'Spa-Francorchamps' },
+  { meeting_key: '202113', meeting_name: 'Dutch Grand Prix', location: 'Zandvoort' },
+  { meeting_key: '202114', meeting_name: 'Italian Grand Prix', location: 'Monza' },
+  { meeting_key: '202115', meeting_name: 'Russian Grand Prix', location: 'Sochi' },
+  { meeting_key: '202116', meeting_name: 'Turkish Grand Prix', location: 'Istanbul' },
+  { meeting_key: '202117', meeting_name: 'United States Grand Prix', location: 'Austin' },
+  { meeting_key: '202118', meeting_name: 'Mexico City Grand Prix', location: 'Mexico City' },
+  { meeting_key: '202119', meeting_name: 'São Paulo Grand Prix', location: 'Interlagos' },
+  { meeting_key: '202120', meeting_name: 'Qatar Grand Prix', location: 'Losail' },
+  { meeting_key: '202121', meeting_name: 'Saudi Arabian Grand Prix', location: 'Jeddah' },
+  { meeting_key: '202122', meeting_name: 'Abu Dhabi Grand Prix', location: 'Yas Marina' }
+];
+
 const MOCK_DRIVERS = [
-  { driver_number: 1, name_acronym: 'VER', broadcast_name: 'M VERSTAPPEN', team_name: 'Red Bull Racing', team_colour: '3671c6', last_lap: '1:36.128', interval: 'LEADER', tyre: '🔴 Soft', tyre_age: 4, pos: 1 },
-  { driver_number: 44, name_acronym: 'HAM', broadcast_name: 'L HAMILTON', team_name: 'Mercedes', team_colour: '27f4d2', last_lap: '1:36.524', interval: '+3.425', tyre: '🟡 Medium', tyre_age: 12, pos: 2 },
-  { driver_number: 16, name_acronym: 'LEC', broadcast_name: 'C LECLERC', team_name: 'Ferrari', team_colour: 'e80020', last_lap: '1:36.852', interval: '+5.109', tyre: '🟡 Medium', tyre_age: 14, pos: 3 },
-  { driver_number: 4, name_acronym: 'NOR', broadcast_name: 'L NORRIS', team_name: 'McLaren', team_colour: 'ff8000', last_lap: '1:36.319', interval: '+7.882', tyre: '⚪ Hard', tyre_age: 8, pos: 4 },
-  { driver_number: 63, name_acronym: 'RUS', broadcast_name: 'G RUSSELL', team_name: 'Mercedes', team_colour: '27f4d2', last_lap: '1:37.112', interval: '+9.510', tyre: '🔴 Soft', tyre_age: 5, pos: 5 },
-  { driver_number: 55, name_acronym: 'SAI', broadcast_name: 'C SAINZ', team_name: 'Ferrari', team_colour: 'e80020', last_lap: '1:36.910', interval: '+11.238', tyre: '⚪ Hard', tyre_age: 18, pos: 6 },
-  { driver_number: 11, name_acronym: 'PER', broadcast_name: 'S PEREZ', team_name: 'Red Bull Racing', team_colour: '3671c6', last_lap: '1:37.240', interval: '+14.992', tyre: '🟡 Medium', tyre_age: 15, pos: 7 },
-  { driver_number: 81, name_acronym: 'PIA', broadcast_name: 'O PIASTRI', team_name: 'McLaren', team_colour: 'ff8000', last_lap: '1:37.380', interval: '+16.540', tyre: '⚪ Hard', tyre_age: 9, pos: 8 }
+  { driver_number: 1, name_acronym: 'VER', broadcast_name: 'M VERSTAPPEN', team_name: 'Red Bull Racing', team_colour: '3671c6', last_lap: '1:34.128', interval: 'LEADER', tyre: '🔴 Soft', tyre_age: 4, pos: 1, progress: 120, lap: 3, speedFactor: 1.03, speed: 280 },
+  { driver_number: 44, name_acronym: 'HAM', broadcast_name: 'L HAMILTON', team_name: 'Mercedes', team_colour: '27f4d2', last_lap: '1:34.524', interval: '+1.850', tyre: '🟡 Medium', tyre_age: 12, pos: 2, progress: 110, lap: 3, speedFactor: 1.01, speed: 275 },
+  { driver_number: 16, name_acronym: 'LEC', broadcast_name: 'C LECLERC', team_name: 'Ferrari', team_colour: 'e80020', last_lap: '1:34.852', interval: '+3.700', tyre: '🟡 Medium', tyre_age: 14, pos: 3, progress: 100, lap: 3, speedFactor: 1.01, speed: 272 },
+  { driver_number: 4, name_acronym: 'NOR', broadcast_name: 'L NORRIS', team_name: 'McLaren', team_colour: 'ff8000', last_lap: '1:34.319', interval: '+5.550', tyre: '⚪ Hard', tyre_age: 8, pos: 4, progress: 90, lap: 3, speedFactor: 1.00, speed: 270 },
+  { driver_number: 63, name_acronym: 'RUS', broadcast_name: 'G RUSSELL', team_name: 'Mercedes', team_colour: '27f4d2', last_lap: '1:35.112', interval: '+7.400', tyre: '🔴 Soft', tyre_age: 5, pos: 5, progress: 80, lap: 3, speedFactor: 0.99, speed: 268 },
+  { driver_number: 55, name_acronym: 'SAI', broadcast_name: 'C SAINZ', team_name: 'Ferrari', team_colour: 'e80020', last_lap: '1:34.910', interval: '+9.250', tyre: '⚪ Hard', tyre_age: 18, pos: 6, progress: 70, lap: 3, speedFactor: 0.99, speed: 265 },
+  { driver_number: 11, name_acronym: 'PER', broadcast_name: 'S PEREZ', team_name: 'Red Bull Racing', team_colour: '3671c6', last_lap: '1:35.240', interval: '+11.100', tyre: '🟡 Medium', tyre_age: 15, pos: 7, progress: 60, lap: 3, speedFactor: 0.98, speed: 262 },
+  { driver_number: 81, name_acronym: 'PIA', broadcast_name: 'O PIASTRI', team_name: 'McLaren', team_colour: 'ff8000', last_lap: '1:35.380', interval: '+12.950', tyre: '⚪ Hard', tyre_age: 9, pos: 8, progress: 50, lap: 3, speedFactor: 0.98, speed: 260 },
+  { driver_number: 14, name_acronym: 'ALO', broadcast_name: 'F ALONSO', team_name: 'Aston Martin', team_colour: '229971', last_lap: '1:35.510', interval: '+14.800', tyre: '🟡 Medium', tyre_age: 11, pos: 9, progress: 40, lap: 3, speedFactor: 0.98, speed: 258 },
+  { driver_number: 10, name_acronym: 'GAS', broadcast_name: 'P GASLY', team_name: 'Alpine', team_colour: 'ff66c4', last_lap: '1:35.750', interval: '+16.650', tyre: '🔴 Soft', tyre_age: 6, pos: 10, progress: 30, lap: 3, speedFactor: 0.97, speed: 255 }
 ];
 
 const MOCK_RACE_CONTROL = [
@@ -43,25 +150,20 @@ const MOCK_RACE_CONTROL = [
   "FERRARI PIT: Leclerc, plan B, plan B. Monitor track temp, it is climbing."
 ];
 
-// ==========================================
-// SYSTEM SESSIONS DROPDOWN
-// ==========================================
-const SESSIONS_LIST = [
-  { key: '9472', name: '🇧🇭 Bahrain Grand Prix 2024', circuit: 'Sakhir', year: 2024 },
-  { key: '9480', name: '🇸🇦 Saudi Arabian Grand Prix 2024', circuit: 'Jeddah', year: 2024 },
-  { key: '9488', name: '🇦🇺 Australian Grand Prix 2024', circuit: 'Melbourne', year: 2024 },
-  { key: 'latest', name: '🟢 Active Live Session (Dynamic)', circuit: 'Current Track', year: 2026 }
-];
-
 const Dashboard = () => {
   const { user, logout, accessToken } = useAuth();
   const [activeTab, setActiveTab] = useState('pitwall'); // pitwall, diagnostics
-  
-  // Dashboard states
+
+  // Dynamic Year & Grand Prix selection
+  const [selectedYear, setSelectedYear] = useState('2024');
+  const [meetings, setMeetings] = useState([{ meeting_key: 1229, meeting_name: 'Bahrain Grand Prix', location: 'Sakhir' }]);
+  const [selectedMeetingKey, setSelectedMeetingKey] = useState('1229');
   const [sessionKey, setSessionKey] = useState('9472');
+
+  // Main UI states
   const [drivers, setDrivers] = useState(MOCK_DRIVERS);
-  const [selectedDriver, setSelectedDriver] = useState(44); // Hamilton
-  const [compareDriver, setCompareDriver] = useState(null); // Optional side-by-side
+  const [selectedDriver, setSelectedDriver] = useState(1); // Verstappen
+  const [compareDriver, setCompareDriver] = useState(null); // Optional overlay
   const [weather, setWeather] = useState({ air_temp: 18.9, track_temp: 26.5, humidity: 46, wind_speed: 1.2, rainfall: 0 });
   const [flagStatus, setFlagStatus] = useState('GREEN'); // GREEN, YELLOW, RED, SAFETY CAR
   const [raceControl, setRaceControl] = useState(MOCK_RACE_CONTROL);
@@ -69,8 +171,7 @@ const Dashboard = () => {
 
   // Replay states
   const [isPlaying, setIsPlaying] = useState(true);
-  const [playbackIndex, setPlaybackIndex] = useState(0);
-  const [trackPath, setTrackPath] = useState(TRACK_MAPS['9472']);
+  const [trackPath, setTrackPath] = useState(SAKHIR_PATH);
   const [loading, setLoading] = useState(false);
 
   // Playback Telemetry history for rolling line graph
@@ -78,11 +179,11 @@ const Dashboard = () => {
   const [compareHistory, setCompareHistory] = useState([]);
   const timerRef = useRef(null);
 
-  // Derive driver details
-  const activeDriverInfo = drivers.find(d => d.driver_number === selectedDriver) || MOCK_DRIVERS[1];
+  // Active driver details helper
+  const activeDriverInfo = drivers.find(d => d.driver_number === selectedDriver) || MOCK_DRIVERS[0];
   const compareDriverInfo = compareDriver ? drivers.find(d => d.driver_number === compareDriver) : null;
 
-  // Track map dimensions and scaling limits
+  // Track map dynamic bounds calculation
   const xCoords = trackPath.map(p => p.x);
   const yCoords = trackPath.map(p => p.y);
   const minX = xCoords.length ? Math.min(...xCoords) : -1000;
@@ -96,136 +197,237 @@ const Dashboard = () => {
   const svgW = 400;
   const svgH = 260;
 
-  // Scale (X, Y) layout dynamically to fit SVG boundary viewport
+  // Map coordinate bounds dynamically to fits SVG viewBox
   const scaleX = (x) => padding + ((x - minX) / dx) * (svgW - 2 * padding);
   const scaleY = (y) => padding + (1 - (y - minY) / dy) * (svgH - 2 * padding); // Inverted Y
 
+  const getInterpolatedCoords = (progress) => {
+    if (!trackPath || trackPath.length === 0) return { x: 0, y: 0 };
+    const i = Math.floor(progress) % trackPath.length;
+    const nextIdx = (i + 1) % trackPath.length;
+    const t = progress - Math.floor(progress);
+    
+    const p1 = trackPath[i];
+    const p2 = trackPath[nextIdx];
+    
+    return {
+      x: p1.x + (p2.x - p1.x) * t,
+      y: p1.y + (p2.y - p1.y) * t
+    };
+  };
+
+  const activeDriverObj = drivers.find(d => d.driver_number === selectedDriver);
+  const compareDriverObj = compareDriver ? drivers.find(d => d.driver_number === compareDriver) : null;
+
+  const activeCoords = activeDriverObj ? getInterpolatedCoords(activeDriverObj.progress) : (trackPath[0] || { x: 0, y: 0 });
+  const compareCoords = compareDriverObj ? getInterpolatedCoords(compareDriverObj.progress) : null;
+
   // ==========================================
-  // FETCH ACTIVE API DATA FROM OPENF1
+  // FETCH 1: DYNAMIC MEETING LIST ON YEAR SELECTION
   // ==========================================
-  const loadSessionData = useCallback(async (key) => {
+  const loadMeetingsForYear = useCallback(async (year) => {
+    if (year === '2022') {
+      setMeetings(MOCK_MEETINGS_2022);
+      setSelectedMeetingKey(MOCK_MEETINGS_2022[0].meeting_key.toString());
+      return;
+    }
+    if (year === '2021') {
+      setMeetings(MOCK_MEETINGS_2021);
+      setSelectedMeetingKey(MOCK_MEETINGS_2021[0].meeting_key.toString());
+      return;
+    }
+    try {
+      const res = await axios.get(`https://api.openf1.org/v1/meetings?year=${year}`);
+      if (res.data && res.data.length > 0) {
+        const filtered = res.data.filter(m => !m.meeting_name.includes('Testing') && !m.is_cancelled);
+        setMeetings(filtered);
+        // Auto-select the first Grand Prix of the year
+        setSelectedMeetingKey(filtered[0].meeting_key.toString());
+      }
+    } catch (err) {
+      console.warn("Failed to fetch meetings. Offline fallback active.", err);
+      setMeetings(MOCK_MEETINGS_2022);
+      setSelectedMeetingKey(MOCK_MEETINGS_2022[0].meeting_key.toString());
+    }
+  }, []);
+
+  useEffect(() => {
+    loadMeetingsForYear(selectedYear);
+  }, [selectedYear, loadMeetingsForYear]);
+
+  // ==========================================
+  // FETCH 2: DYNAMIC DATA LOAD ON GRAND PRIX SELECTION
+  // ==========================================
+  const loadGrandPrixData = useCallback(async (meetingKey) => {
     setLoading(true);
     try {
-      // 1. Fetch Drivers in this session
-      const driversRes = await axios.get(`https://api.openf1.org/v1/drivers?session_key=${key === 'latest' ? 9472 : key}`);
-      if (driversRes.data && driversRes.data.length > 0) {
-        // Map OpenF1 schemas to our unified dashboard format
-        const mapped = driversRes.data.slice(0, 10).map((d, index) => ({
+      const selectedM = meetings.find(m => m.meeting_key.toString() === meetingKey.toString());
+      const isOfflineYear = selectedYear === '2021' || selectedYear === '2022';
+      
+      let activeSessionKey = 'offline';
+      let driversData = [];
+      let weatherData = null;
+      let pathData = null;
+
+      if (!isOfflineYear) {
+        try {
+          // 1. Fetch Session Key for the Grand Prix race
+          const sessionRes = await axios.get(`https://api.openf1.org/v1/sessions?meeting_key=${meetingKey}&session_name=Race`);
+          if (sessionRes.data && sessionRes.data.length > 0) {
+            activeSessionKey = sessionRes.data[0].session_key;
+            setSessionKey(activeSessionKey.toString());
+
+            // 2. Fetch Drivers list
+            const driversRes = await axios.get(`https://api.openf1.org/v1/drivers?session_key=${activeSessionKey}`);
+            if (driversRes.data && driversRes.data.length > 0) {
+              driversData = driversRes.data.slice(0, 10);
+            }
+
+            // 3. Dynamic Circuit Map: Fetch exactly one clean racing lap dynamically
+            const leadDriverNum = driversData.length > 0 ? driversData[0].driver_number : 1;
+            const lapsRes = await axios.get(`https://api.openf1.org/v1/laps?session_key=${activeSessionKey}&driver_number=${leadDriverNum}`);
+            if (lapsRes.data && lapsRes.data.length > 5) {
+              const lap3 = lapsRes.data.find(l => l.lap_number === 3);
+              const lap4 = lapsRes.data.find(l => l.lap_number === 4);
+              if (lap3 && lap4) {
+                const locRes = await axios.get(`https://api.openf1.org/v1/location?session_key=${activeSessionKey}&driver_number=${leadDriverNum}&date>=${lap3.date_start}&date<=${lap4.date_start}`);
+                if (locRes.data && locRes.data.length > 5) {
+                  const downsampled = [];
+                  const skip = Math.max(1, Math.floor(locRes.data.length / 120));
+                  for (let i = 0; i < locRes.data.length; i += skip) {
+                    downsampled.push({ x: locRes.data[i].x, y: locRes.data[i].y });
+                  }
+                  if (downsampled.length > 10) {
+                    pathData = downsampled;
+                  }
+                }
+              }
+            }
+
+            // 4. Fetch Weather metrics
+            const weatherRes = await axios.get(`https://api.openf1.org/v1/weather?session_key=${activeSessionKey}`);
+            if (weatherRes.data && weatherRes.data.length > 0) {
+              const latest = weatherRes.data[weatherRes.data.length - 1];
+              weatherData = {
+                air_temp: latest.air_temperature || 19,
+                track_temp: latest.track_temperature || 26.5,
+                humidity: latest.humidity || 45,
+                wind_speed: latest.wind_speed || 1.1,
+                rainfall: latest.rainfall || 0
+              };
+            }
+          }
+        } catch (apiErr) {
+          console.warn("OpenF1 API call failed, falling back to local simulation.", apiErr);
+        }
+      }
+
+      // If we don't have drivers data, populate with mock drivers
+      if (driversData.length === 0) {
+        driversData = [
+          { driver_number: 1, name_acronym: 'VER', broadcast_name: 'M VERSTAPPEN', team_name: 'Red Bull Racing', team_colour: '3671c6' },
+          { driver_number: 44, name_acronym: 'HAM', broadcast_name: 'L HAMILTON', team_name: 'Mercedes', team_colour: '27f4d2' },
+          { driver_number: 16, name_acronym: 'LEC', broadcast_name: 'C LECLERC', team_name: 'Ferrari', team_colour: 'e80020' },
+          { driver_number: 4, name_acronym: 'NOR', broadcast_name: 'L NORRIS', team_name: 'McLaren', team_colour: 'ff8000' },
+          { driver_number: 63, name_acronym: 'RUS', broadcast_name: 'G RUSSELL', team_name: 'Mercedes', team_colour: '27f4d2' },
+          { driver_number: 55, name_acronym: 'SAI', broadcast_name: 'C SAINZ', team_name: 'Ferrari', team_colour: 'e80020' },
+          { driver_number: 11, name_acronym: 'PER', broadcast_name: 'S PEREZ', team_name: 'Red Bull Racing', team_colour: '3671c6' },
+          { driver_number: 81, name_acronym: 'PIA', broadcast_name: 'O PIASTRI', team_name: 'McLaren', team_colour: 'ff8000' },
+          { driver_number: 14, name_acronym: 'ALO', broadcast_name: 'F ALONSO', team_name: 'Aston Martin', team_colour: '229971' },
+          { driver_number: 10, name_acronym: 'GAS', broadcast_name: 'P GASLY', team_name: 'Alpine', team_colour: 'ff66c4' }
+        ];
+      }
+
+      // Resolve Track path from DB or fallback
+      const resolvedPath = pathData || getOfflineTrackPath(selectedM?.meeting_name, selectedM?.location);
+      setTrackPath(resolvedPath);
+
+      // Map dynamic drivers simulation state
+      const mappedDrivers = driversData.map((d, index) => {
+        const startProgress = Math.max(0, resolvedPath.length - index * (resolvedPath.length / driversData.length));
+        return {
           driver_number: d.driver_number,
           name_acronym: d.name_acronym,
           broadcast_name: d.broadcast_name,
           team_name: d.team_name,
           team_colour: d.team_colour || 'cccccc',
-          last_lap: index === 0 ? '1:36.128' : `1:36.${500 + index * 12}`,
-          interval: index === 0 ? 'LEADER' : `+${(index * 1.624).toFixed(3)}`,
+          last_lap: index === 0 ? '1:34.128' : `1:34.${500 + index * 24}`,
+          interval: index === 0 ? 'LEADER' : `+${(index * 1.85).toFixed(3)}`,
           tyre: index % 3 === 0 ? '🔴 Soft' : index % 3 === 1 ? '🟡 Medium' : '⚪ Hard',
           tyre_age: 4 + index * 2,
-          pos: index + 1
-        }));
-        setDrivers(mapped);
-        
-        // Auto-select a valid driver number if Hamilton doesn't exist in new list
-        const exists = mapped.find(m => m.driver_number === selectedDriver);
-        if (!exists) {
-          setSelectedDriver(mapped[0].driver_number);
-        }
-      }
+          pos: index + 1,
+          lap: 3,
+          progress: startProgress,
+          speedFactor: 1.0 + (driversData.length - index) * 0.003,
+          speed: 250
+        };
+      });
 
-      // 2. Load Track location path from static high-fidelity database
-      const cleanPath = TRACK_MAPS[key] || TRACK_MAPS['9472'];
-      setTrackPath(cleanPath);
-      setPlaybackIndex(0);
+      setDrivers(mappedDrivers);
+      setSelectedDriver(mappedDrivers[0].driver_number);
+      setCompareDriver(null);
 
-      // 3. Fetch Session Weather from OpenF1
-      const weatherRes = await axios.get(`https://api.openf1.org/v1/weather?session_key=${key === 'latest' ? 9472 : key}`);
-      if (weatherRes.data && weatherRes.data.length > 0) {
-        const latest = weatherRes.data[weatherRes.data.length - 1];
-        setWeather({
-          air_temp: latest.air_temperature || 19,
-          track_temp: latest.track_temperature || 26.5,
-          humidity: latest.humidity || 45,
-          wind_speed: latest.wind_speed || 1.1,
-          rainfall: latest.rainfall || 0
-        });
+      // Weather fallback
+      if (!weatherData) {
+        weatherData = { air_temp: 21.2, track_temp: 31.4, humidity: 38, wind_speed: 1.8, rainfall: 0 };
       }
+      setWeather(weatherData);
+
     } catch (err) {
-      console.warn("OpenF1 API network offline. Seamlessly utilizing Sakhir simulator fallback database.", err);
-      setDrivers(MOCK_DRIVERS);
-      setTrackPath(SAKHIR_TRACK_COORDS);
+      console.error("Critical error in loadGrandPrixData", err);
     } finally {
       setLoading(false);
     }
-  }, [selectedDriver]);
+  }, [meetings, selectedYear]);
 
   useEffect(() => {
-    loadSessionData(sessionKey);
-  }, [sessionKey, loadSessionData]);
-
-  // ==========================================
-  // PLAYBACK SIMULATOR ENGINE (TILL CORNERS)
-  // ==========================================
-  useEffect(() => {
-    if (!isPlaying || trackPath.length === 0) {
-      if (timerRef.current) clearInterval(timerRef.current);
-      return;
+    if (selectedMeetingKey) {
+      loadGrandPrixData(selectedMeetingKey);
     }
+  }, [selectedMeetingKey, loadGrandPrixData]);
 
-    timerRef.current = setInterval(() => {
-      setPlaybackIndex(prev => {
-        const nextIndex = prev + 1 >= trackPath.length ? 0 : prev + 1;
-        return nextIndex;
-      });
-    }, 250); // updates telemetry segment every 250ms
-
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [isPlaying, trackPath]);
-
-  // Dynamic Telemetry generator based on active path geometry (speed dials rise on straight, drops on sharp corners)
+  // Dynamic Telemetry Generator
   const getDynamicTelemetry = (index, driverNum) => {
     if (!trackPath || trackPath.length === 0) return { speed: 0, rpm: 0, throttle: 0, brake: 0, gear: 'N', drs: 0 };
     
-    // Bahrain GP physics model
     const totalPoints = trackPath.length;
     const ratio = index / totalPoints;
 
-    // Simulate corners at specific coordinates
     let throttle = 100;
     let brake = 0;
     let speed = 280;
     let gear = 7;
     let drs = 0;
 
-    // Bahrain Turn 1-2 tight hairpin (bottom left corners)
+    // Corner 1: Heavy braking
     if (ratio >= 0.08 && ratio <= 0.18) {
       throttle = 15;
       brake = 85;
       speed = 85;
       gear = 2;
     }
-    // Bahrain Turn 4 right-hander
+    // Corner 2: Medium sweeper
     else if (ratio >= 0.28 && ratio <= 0.35) {
       throttle = 30;
       brake = 60;
       speed = 135;
       gear = 3;
     }
-    // Turn 8 Hairpin (middle track)
+    // Corner 3: Hairpin
     else if (ratio >= 0.52 && ratio <= 0.60) {
       throttle = 10;
       brake = 90;
       speed = 70;
       gear = 1;
     }
-    // Turn 9-10 heavy locking left-hander
+    // Corner 4: Downhill sweep
     else if (ratio >= 0.65 && ratio <= 0.72) {
       throttle = 20;
       brake = 75;
       speed = 110;
       gear = 3;
     }
-    // Final Turn 14-15 entry onto Main Straight (Max Speed straight)
+    // Straights
     else if (ratio >= 0.88 || ratio <= 0.05) {
       throttle = 100;
       brake = 0;
@@ -234,44 +436,155 @@ const Dashboard = () => {
       drs = 1;
     }
 
-    // Driver specific adjustments (e.g. Verstappen pushes harder on straights)
     if (driverNum === 1) {
-      speed = Math.min(340, Math.floor(speed * 1.03));
-      if (throttle === 100) throttle = 100;
+      speed = Math.min(340, Math.floor(speed * 1.02));
     } else {
       speed = Math.floor(speed * 0.98);
     }
 
-    // Add high-frequency sensor noise (+/- 3 km/h)
     speed = Math.max(0, speed + (index % 5) - 2);
     const rpm = speed === 0 ? 0 : Math.floor(6000 + (speed / 340) * 6500 + (index % 3) * 200);
 
     return { speed, rpm, throttle, brake, gear, drs };
   };
 
-  const currentTelemetry = getDynamicTelemetry(playbackIndex, selectedDriver);
-  const compareTelemetry = compareDriver ? getDynamicTelemetry(playbackIndex, compareDriver) : null;
-
-  // Maintain telemetry historical tracks for graph path creation
+  // ==========================================
+  // PLAYBACK REPLAY ENGINE & DYNAMIC LEADERBOARD
+  // ==========================================
   useEffect(() => {
-    setTelemetryHistory(prev => {
-      const updated = [...prev, currentTelemetry];
-      if (updated.length > 30) updated.shift();
-      return updated;
-    });
-
-    if (compareDriver) {
-      setCompareHistory(prev => {
-        const updated = [...prev, compareTelemetry];
-        if (updated.length > 30) updated.shift();
-        return updated;
-      });
-    } else {
-      setCompareHistory([]);
+    if (!isPlaying || trackPath.length === 0) {
+      if (timerRef.current) clearInterval(timerRef.current);
+      return;
     }
-  }, [playbackIndex, selectedDriver, compareDriver]);
 
-  // Construct SVG Polyline path dynamically
+    const parseLapTimeToSeconds = (str) => {
+      if (!str || typeof str !== 'string') return 90;
+      const parts = str.split(':');
+      if (parts.length < 2) return parseFloat(str) || 90;
+      const mins = parseInt(parts[0], 10);
+      const secs = parseFloat(parts[1]);
+      return mins * 60 + secs;
+    };
+
+    timerRef.current = setInterval(() => {
+      // Step 1: Update progress and physics for all drivers!
+      setDrivers(prevDrivers => {
+        const nextDrivers = prevDrivers.map(d => {
+          const idx = Math.floor(d.progress) % trackPath.length;
+          const tel = getDynamicTelemetry(idx, d.driver_number);
+          let baseSpeed = tel.speed;
+          
+          // Driver speed delta + random noise + DRS boost
+          const randomFactor = 1.0 + (Math.random() * 0.04 - 0.02);
+          let drsBoost = 1.0;
+          if (tel.drs === 1) {
+            drsBoost = 1.05; // 5% boost in DRS zone
+          }
+          
+          const speed = baseSpeed * (d.speedFactor || 1.0) * randomFactor * drsBoost;
+          
+          // Exact time-calibrated physical step delta:
+          const lapSeconds = parseLapTimeToSeconds(d.last_lap);
+          const dt = 0.06; // 60ms interval is 0.06s
+          const stepDelta = trackPath.length * (dt / lapSeconds) * (speed / 220);
+          
+          let nextProgress = d.progress + stepDelta;
+          let nextLap = d.lap || 3;
+          let nextTyreAge = d.tyre_age || 4;
+          let nextLastLap = d.last_lap || '1:34.250';
+
+          if (nextProgress >= trackPath.length) {
+            nextProgress = nextProgress % trackPath.length;
+            nextLap += 1;
+            nextTyreAge += 1;
+            
+            // Generate a realistic new lap time!
+            const lapBaseSecs = 90 + (10 - d.pos) * 0.15 + Math.random() * 0.5;
+            const mins = Math.floor(lapBaseSecs / 60);
+            const secs = Math.floor(lapBaseSecs % 60);
+            const ms = Math.floor((lapBaseSecs % 1) * 1000);
+            nextLastLap = `${mins}:${secs.toString().padStart(2, '0')}.${ms.toString().padStart(3, '0')}`;
+          }
+
+          return {
+            ...d,
+            progress: nextProgress,
+            lap: nextLap,
+            tyre_age: nextTyreAge,
+            last_lap: nextLastLap,
+            speed: Math.round(speed)
+          };
+        });
+
+        // Step 2: Sort leaderboard based on total completed distance
+        const sorted = [...nextDrivers].sort((a, b) => {
+          const distA = (a.lap || 3) * trackPath.length + a.progress;
+          const distB = (b.lap || 3) * trackPath.length + b.progress;
+          return distB - distA;
+        });
+
+        // Step 3: Recalculate gaps relative to the leader
+        const leader = sorted[0];
+        const leaderDist = (leader.lap || 3) * trackPath.length + leader.progress;
+
+        const updatedWithPositions = sorted.map((d, index) => {
+          let interval = 'LEADER';
+          if (index > 0) {
+            const distDiff = leaderDist - ((d.lap || 3) * trackPath.length + d.progress);
+            const gapSecs = (distDiff / trackPath.length) * 94; // assume ~94s lap time
+            interval = `+${gapSecs.toFixed(3)}`;
+          }
+
+          return {
+            ...d,
+            pos: index + 1,
+            interval
+          };
+        });
+
+        // Step 4: Keep high-frequency telemetry historical tracks in sync
+        const activeDrv = updatedWithPositions.find(d => d.driver_number === selectedDriver) || updatedWithPositions[0];
+        const activeTel = activeDrv
+          ? {
+              ...getDynamicTelemetry(Math.floor(activeDrv.progress) % trackPath.length, activeDrv.driver_number),
+              speed: activeDrv.speed
+            }
+          : { speed: 0, rpm: 0, throttle: 0, brake: 0, gear: 'N', drs: 0 };
+        
+        setTelemetryHistory(prev => {
+          const updated = [...prev, activeTel];
+          if (updated.length > 30) updated.shift();
+          return updated;
+        });
+
+        if (compareDriver) {
+          const compDrv = updatedWithPositions.find(d => d.driver_number === compareDriver);
+          const compTel = compDrv
+            ? {
+                ...getDynamicTelemetry(Math.floor(compDrv.progress) % trackPath.length, compDrv.driver_number),
+                speed: compDrv.speed
+              }
+            : { speed: 0, rpm: 0, throttle: 0, brake: 0, gear: 'N', drs: 0 };
+
+          setCompareHistory(prev => {
+            const updated = [...prev, compTel];
+            if (updated.length > 30) updated.shift();
+            return updated;
+          });
+        } else {
+          setCompareHistory([]);
+        }
+
+        return updatedWithPositions;
+      });
+    }, 60);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isPlaying, trackPath, selectedDriver, compareDriver]);
+
+  // Construct SVG line charts
   const generateChartPath = (history, field, maxVal) => {
     if (history.length < 2) return '';
     const w = 400;
@@ -295,7 +608,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container f1-dark-theme" style={{ backgroundColor: '#0b0f19' }}>
-      {/* SIDEBAR: Aegis Corporate Brand & Control */}
+      {/* SIDEBAR: Aegis Controls */}
       <aside className="sidebar" style={{ backgroundColor: '#111827', borderRight: '1px solid #1f2937' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '32px', paddingLeft: '8px' }}>
           <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'linear-gradient(135deg, var(--neon-cyan) 0%, #0369a1 100%)', display: 'flex', alignItems: 'center', justifyItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
@@ -376,15 +689,32 @@ const Dashboard = () => {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <span style={{ color: 'var(--neon-cyan)', fontSize: '11px', fontWeight: '800', letterSpacing: '0.1em' }}>LIVE PIT WALL FEED</span>
+              
+              {/* Year Selector */}
               <select
-                value={sessionKey}
-                onChange={(e) => setSessionKey(e.target.value)}
+                value={selectedYear}
+                onChange={(e) => setSelectedYear(e.target.value)}
                 style={{
-                  backgroundColor: '#111827', color: '#f9fafb', border: '1px solid #1f2937', borderRadius: '6px', fontSize: '12px', padding: '4px 10px', outline: 'none', cursor: 'pointer', fontFamily: 'var(--font-heading)', fontWeight: '600'
+                  backgroundColor: '#111827', color: '#f9fafb', border: '1px solid #1f2937', borderRadius: '6px', fontSize: '11px', padding: '4px 10px', outline: 'none', cursor: 'pointer', fontFamily: 'var(--font-heading)', fontWeight: '600'
                 }}
               >
-                {SESSIONS_LIST.map(s => (
-                  <option key={s.key} value={s.key}>{s.name}</option>
+                <option value="2025">2025 Season</option>
+                <option value="2024">2024 Season</option>
+                <option value="2023">2023 Season</option>
+                <option value="2022">2022 Season</option>
+                <option value="2021">2021 Season</option>
+              </select>
+
+              {/* Dynamic Grand Prix Selector */}
+              <select
+                value={selectedMeetingKey}
+                onChange={(e) => setSelectedMeetingKey(e.target.value)}
+                style={{
+                  backgroundColor: '#111827', color: '#f9fafb', border: '1px solid #1f2937', borderRadius: '6px', fontSize: '11px', padding: '4px 10px', outline: 'none', cursor: 'pointer', fontFamily: 'var(--font-heading)', fontWeight: '600'
+                }}
+              >
+                {meetings.map(m => (
+                  <option key={m.meeting_key} value={m.meeting_key}>{m.meeting_name} ({m.location})</option>
                 ))}
               </select>
             </div>
@@ -423,7 +753,7 @@ const Dashboard = () => {
         {loading && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px', background: 'rgba(34, 211, 238, 0.08)', border: '1px solid rgba(34, 211, 238, 0.15)', borderRadius: '8px', color: 'var(--neon-cyan)', marginBottom: '16px', fontSize: '13px', fontWeight: '600' }}>
             <div className="spinner" style={{ borderTopColor: 'var(--neon-cyan)' }}></div>
-            Hydrating F1 telemetry coordinate data streams from OpenF1 server...
+            Dynamically compiling high-fidelity lap coordinates and drivers roster from OpenF1 server...
           </div>
         )}
 
@@ -436,7 +766,7 @@ const Dashboard = () => {
               {/* PANEL 1.1: HTML5 SVG Circuit Map (6 columns) */}
               <div className="pitwall-card" style={{ gridColumn: 'span 6', padding: '24px', position: 'relative', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                  <h3 style={{ color: '#f9fafb', fontSize: '15px' }}>Circuit Live Positioning ({SESSIONS_LIST.find(s=>s.key===sessionKey)?.circuit || 'Sakhir'})</h3>
+                  <h3 style={{ color: '#f9fafb', fontSize: '15px' }}>Circuit Live Positioning ({meetings.find(m => m.meeting_key.toString() === selectedMeetingKey)?.location || 'Sakhir'})</h3>
                   <div style={{ display: 'flex', gap: '8px' }}>
                     <button
                       onClick={() => setIsPlaying(!isPlaying)}
@@ -463,7 +793,6 @@ const Dashboard = () => {
                 <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '280px', backgroundColor: '#090d16', borderRadius: '8px', border: '1px solid #1f2937', padding: '10px' }}>
                   {trackPath.length > 0 ? (
                     <svg width="100%" height="260" viewBox={`0 0 ${svgW} ${svgH}`} style={{ overflow: 'visible' }}>
-                      {/* Grid overlay for radar effect */}
                       <defs>
                         <pattern id="radarGrid" width="40" height="40" patternUnits="userSpaceOnUse">
                           <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(34, 211, 238, 0.03)" strokeWidth="1" />
@@ -490,35 +819,37 @@ const Dashboard = () => {
                       />
 
                       {/* Sector markings */}
-                      <circle cx={scaleX(trackPath[0].x)} cy={scaleY(trackPath[0].y)} r="5" fill="#f59e0b" title="Start/Finish Line" />
+                      <circle cx={scaleX(trackPath[0].x)} cy={scaleY(trackPath[0].y)} r="5" fill="#f59e0b" />
                       <text x={scaleX(trackPath[0].x) + 8} y={scaleY(trackPath[0].y) - 8} fill="#f59e0b" fontSize="8" fontWeight="800">START</text>
 
-                      {/* Primary Driver Indicator Dot */}
-                      {trackPath[playbackIndex] && (
+                      {/* Primary Driver Indicator Dot with Smooth CSS transitions */}
+                      {activeCoords && (
                         <g>
                           <circle
-                            cx={scaleX(trackPath[playbackIndex].x)}
-                            cy={scaleY(trackPath[playbackIndex].y)}
+                            cx={scaleX(activeCoords.x)}
+                            cy={scaleY(activeCoords.y)}
                             r="12"
                             fill={`rgba(${activeDriverInfo.team_name.includes('Ferrari') ? '232,0,32' : activeDriverInfo.team_name.includes('Red Bull') ? '54,113,198' : '39,244,210'}, 0.25)`}
+                            style={{ transition: 'cx 0.08s linear, cy 0.08s linear' }}
                           >
                             <animate attributeName="r" values="8;16;8" dur="1.5s" repeatCount="indefinite" />
                           </circle>
                           <circle
-                            cx={scaleX(trackPath[playbackIndex].x)}
-                            cy={scaleY(trackPath[playbackIndex].y)}
+                            cx={scaleX(activeCoords.x)}
+                            cy={scaleY(activeCoords.y)}
                             r="6"
                             fill={`#${activeDriverInfo.team_colour}`}
                             stroke="#ffffff"
                             strokeWidth="1.5"
+                            style={{ transition: 'cx 0.08s linear, cy 0.08s linear' }}
                           />
                           <text
-                            x={scaleX(trackPath[playbackIndex].x) + 10}
-                            y={scaleY(trackPath[playbackIndex].y) + 4}
+                            x={scaleX(activeCoords.x) + 10}
+                            y={scaleY(activeCoords.y) + 4}
                             fill="#ffffff"
                             fontSize="9"
                             fontWeight="800"
-                            style={{ textShadow: '0 0 5px rgba(0,0,0,0.8)' }}
+                            style={{ textShadow: '0 0 5px rgba(0,0,0,0.8)', transition: 'x 0.08s linear, y 0.08s linear' }}
                           >
                             {activeDriverInfo.name_acronym}
                           </text>
@@ -526,22 +857,24 @@ const Dashboard = () => {
                       )}
 
                       {/* Comparative Driver Indicator Dot */}
-                      {compareDriver && trackPath[(playbackIndex + 10) % trackPath.length] && (
+                      {compareDriver && compareCoords && (
                         <g>
                           <circle
-                            cx={scaleX(trackPath[(playbackIndex + 10) % trackPath.length].x)}
-                            cy={scaleY(trackPath[(playbackIndex + 10) % trackPath.length].y)}
+                            cx={scaleX(compareCoords.x)}
+                            cy={scaleY(compareCoords.y)}
                             r="5"
                             fill={`#${compareDriverInfo?.team_colour || 'ffffff'}`}
                             stroke="#ffffff"
                             strokeWidth="1"
+                            style={{ transition: 'cx 0.08s linear, cy 0.08s linear' }}
                           />
                           <text
-                            x={scaleX(trackPath[(playbackIndex + 10) % trackPath.length].x) - 18}
-                            y={scaleY(trackPath[(playbackIndex + 10) % trackPath.length].y) - 6}
+                            x={scaleX(compareCoords.x) - 18}
+                            y={scaleY(compareCoords.y) - 6}
                             fill="#9ca3af"
                             fontSize="8"
                             fontWeight="700"
+                            style={{ transition: 'x 0.08s linear, y 0.08s linear' }}
                           >
                             {compareDriverInfo?.name_acronym}
                           </text>
@@ -549,7 +882,7 @@ const Dashboard = () => {
                       )}
                     </svg>
                   ) : (
-                    <span style={{ color: '#475569' }}>Formatting Track Coordinate Data...</span>
+                    <span style={{ color: '#475569' }}>Hydrating Track Coordinates Layout...</span>
                   )}
                 </div>
               </div>
@@ -687,12 +1020,10 @@ const Dashboard = () => {
 
               <div style={{ width: '100%', height: '130px', backgroundColor: '#090d16', borderRadius: '8px', border: '1px solid #1f2937', overflow: 'hidden', padding: '5px' }}>
                 <svg width="100%" height="100%" viewBox="0 0 400 120" preserveAspectRatio="none" style={{ overflow: 'visible' }}>
-                  {/* Grid lines */}
                   <line x1="0" y1="10" x2="400" y2="10" stroke="rgba(31, 41, 55, 0.4)" strokeWidth="0.5" />
                   <line x1="0" y1="60" x2="400" y2="60" stroke="rgba(31, 41, 55, 0.4)" strokeWidth="0.5" />
                   <line x1="0" y1="110" x2="400" y2="110" stroke="rgba(31, 41, 55, 0.4)" strokeWidth="0.5" />
 
-                  {/* Cyan line for active driver speed */}
                   <path
                     d={generateChartPath(telemetryHistory, 'speed', 360)}
                     fill="none"
@@ -701,7 +1032,6 @@ const Dashboard = () => {
                     style={{ transition: 'all 0.15s ease' }}
                   />
 
-                  {/* Green line for active driver throttle */}
                   <path
                     d={generateChartPath(telemetryHistory, 'throttle', 100)}
                     fill="none"
@@ -711,7 +1041,6 @@ const Dashboard = () => {
                     style={{ transition: 'all 0.15s ease' }}
                   />
 
-                  {/* Orange line for compare driver speed (if active) */}
                   {compareDriver && compareHistory.length > 0 && (
                     <path
                       d={generateChartPath(compareHistory, 'speed', 360)}
@@ -728,9 +1057,9 @@ const Dashboard = () => {
             {/* GRID LAYER 3: Leaderboard (8 cols) & Pit Strategy/Weather (4 cols) */}
             <div className="dashboard-grid" style={{ marginTop: '0px' }}>
               
-              {/* Leaderboard Table (8 columns) */}
+              {/* Dynamic Leaderboard Table (8 columns) */}
               <div className="pitwall-card" style={{ gridColumn: 'span 8', padding: '24px' }}>
-                <h3 style={{ color: '#f9fafb', fontSize: '15px', marginBottom: '16px' }}>Grand Prix Lap Leaderboard</h3>
+                <h3 style={{ color: '#f9fafb', fontSize: '15px', marginBottom: '16px' }}>Grand Prix Lap Leaderboard (Dynamic gaps)</h3>
                 <div style={{ overflowX: 'auto' }}>
                   <table style={{ width: '100%', borderCollapse: 'collapse', color: '#9ca3af', fontSize: '12px' }}>
                     <thead>
