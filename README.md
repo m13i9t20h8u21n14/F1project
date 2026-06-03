@@ -1,27 +1,25 @@
-# 🛡️ Aegis: Enterprise Desktop Auth Gateway & Session Rotation System
+# 🏎️ F1 Telemetry Visualizer & Race Dashboard
 
-A highly-aesthetic, cryptographically secure desktop web authentication portal featuring short-lived access credentials, cookie-based session tracking, automated silent refreshes (Refresh Token Rotation), suspected access abuse revocation, and an advanced automated staging CI/CD testing pipeline.
+A highly aesthetic, real-time Formula 1 session telemetry visualizer and race simulator. The application maps historical Grand Prix telemetry and models starting grids, live racing progress, and driver inputs (speed, gears, RPM, throttle, and brake) directly onto dynamic 2D SVG track layouts.
 
 ---
 
-## 🚀 Key Architectural Details & Secure Strategy
+## 🚀 Key Architectural Components
 
-1. **Short-Lived Access Tokens (JWT)**:
-   * Access credentials persist strictly in-memory (React context state) and have a short TTL (15 minutes).
-   * This mitigates exposure to Cross-Site Scripting (XSS) extraction attacks.
+1. **Frontend React Web App (Vite)**:
+   - Dynamic SVG-rendered track layouts with real-time scaling and aspect-ratio preservation.
+   - Interactive playback console featuring speeds (1x, 2x, 5x, 10x), resets, and safety car triggers.
+   - Live telemetry panel showing RPM, speed, current gear, and real-time throttle/brake inputs.
+   - Smart starting grid generator utilizing a physics-staggered cumulative distance formula.
 
-2. **HTTP-Only Session Cookies (Refresh Token)**:
-   * Stored in cookies configured with `httpOnly: true`, `secure: true` (in production), and `sameSite: "strict"` attributes.
-   * Eliminates access via JavaScript (fully XSS immune) while defending against Cross-Site Request Forgery (CSRF).
+2. **Node.js Express Backend**:
+   - Manages session metadata, fetches track geography, and coordinates caching layers.
+   - Interfaces with the Python microservice to retrieve high-resolution telemetry.
+   - Connects to MongoDB to archive and retrieve past sessions.
 
-3. **Refresh Token Rotation (RTR)**:
-   * On every refresh request, the old refresh token is blacklisted, and a brand-new token pair (Access + Refresh) is issued.
-   * If a malicious client tries to double-use an expired refresh token, Aegis **instantly revokes all active sessions for that user** (suspected session hijacking mitigation).
-
-4. **Multi-Channel Password Recovery**:
-   * Generates a 6-digit numeric OTP code alongside a secure 32-byte hex link token.
-   * Transmits emails containing both options using standard SMTP config (gmail / sendgrid) with dynamic ethereal fallback.
-   * Revokes all active user sessions instantly upon successful password reset, securing accounts after credentials change.
+3. **Python FastF1 Microservice**:
+   - Integrates with the `fastf1` library to query official F1 telemetry, session logs, lap times, and driver numbers.
+   - Pre-processes geospatial coordinates to map physical latitude/longitude displacements directly into screen-space SVG polylines.
 
 ---
 
