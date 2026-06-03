@@ -27,41 +27,33 @@ A highly aesthetic, real-time Formula 1 session telemetry visualizer and race si
 
 ```
 F1-project/
-├── backend/
-│   ├── config/            # Database connectivity and mailer configs
-│   ├── controllers/       # Route request controllers (Signup, login, resets)
-│   ├── middleware/        # JWT checking and rate limiting
-│   ├── models/            # User mongoose Schema (Hashed passwords, active RTR arrays)
-│   ├── routes/            # Express Endpoint mapping
-│   ├── tests/             # Jest integration test suite (Memory DB)
-│   ├── scripts/           # CI/CD staging smoke test script
-│   ├── .env.example       # Environmental templates
-│   ├── server.js          # Main Express entrance
-│   └── package.json
-├── frontend/
+├── frontend/             # React + Vite UI
 │   ├── src/
-│   │   ├── components/    # Reusable inputs and toasts
-│   │   ├── context/       # Auth Context & global axios interceptors
-│   │   ├── pages/         # Splitscreen entry, password resetting, and live stats dashboards
-│   │   ├── App.jsx        # Pathname routing and splash screens
-│   │   └── main.jsx
-│   ├── package.json
-│   └── vite.config.js
-└── .github/
-    └── workflows/
-        └── ci-cd.yml      # Multi-stage CI/CD pipeline
+│   │   ├── components/   # UI elements (leaderboards, telemetry charts)
+│   │   ├── pages/        # Dashboard layout & playback logic
+│   │   └── services/     # API integration logic
+│   └── package.json
+├── backend/              # Node.js API Gateway
+│   ├── routes/           # Endpoint maps
+│   ├── controllers/      # Coordinates track & archive telemetry
+│   └── package.json
+└── fastf1-service/       # Python FastF1 wrapper microservice
+    ├── app.py            # Flask API returning timing & path arrays
+    ├── requirements.txt  # FastF1, Flask, pandas dependencies
+    └── venv/             # Python environment (ignored in deployment)
 ```
+
+---
+
 
 ---
 
 ## 🛠️ Local Development & Quick Start
 
-Aegis is configured to run out-of-the-box **without needing SMTP email credentials**. It automatically builds a free Ethereal SMTP test account and prints a preview link directly to the backend terminal!
-
-### 1. Start the Backend Service
-1. Open a terminal and navigate to `backend/`:
+### 1. Start the Python FastF1 Microservice
+1.Navigate to the microservice directory
    ```bash
-   cd backend
+   cd fastf1-service
    ```
 2. Set up environment configurations:
    ```bash
@@ -75,6 +67,28 @@ Aegis is configured to run out-of-the-box **without needing SMTP email credentia
    ```
 
 ### 2. Start the Frontend React Web App
+1. Open a second terminal and navigate to `frontend/`:
+   ```bash
+   cd frontend
+   ```
+2. Install modules and start:
+   ```bash
+   npm install
+   npm run dev
+   ```
+3. Visit the dashboard at `http://localhost:5173`.
+### 3. Start the Frontend React Web App
+1. Open a second terminal and navigate to `frontend/`:
+   ```bash
+   cd backend
+   ```
+2. Install modules and start:
+   ```bash
+   npm install
+   npm run dev
+   ```
+3. Visit the dashboard at `http://localhost:5173`.
+
 1. Open a second terminal and navigate to `frontend/`:
    ```bash
    cd frontend
