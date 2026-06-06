@@ -1,0 +1,16 @@
+# Ignore backend and fastf1-service for frontend Vercel deployment
+backend/
+fastf1-service/
+node_modules/
+**/node_modules/
+venv/
+**/venv/
+.fastf1-cache/
+**/.fastf1-cache/
+.git/
+.gemini/
+dist/
+**/dist/
+.env*
+*.local
+*.log

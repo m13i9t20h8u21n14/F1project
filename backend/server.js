@@ -50,6 +50,8 @@ app.use(cookieParser());
 
 // Mount Routes
 app.use('/api/auth', authRoutes);
+const f1Routes = require('./routes/f1Routes');
+app.use('/api/f1', f1Routes);
 
 // Health check endpoint (for CI/CD smoke test!)
 app.get('/health', (req, res) => {

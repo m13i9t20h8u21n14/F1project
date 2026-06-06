@@ -23,3 +23,7 @@ yarn-error.log*
 
 .vercel
 .env*
+
+# Python microservice
+fastf1-service/venv/
+fastf1-service/.fastf1-cache/
